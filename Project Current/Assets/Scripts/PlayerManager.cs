@@ -9,6 +9,8 @@ namespace JC.FDG.Player
     public class PlayerManager : MonoBehaviour
     {
         public static PlayerManager instance;
+
+        public Transform playerUnits;
         void Start()
         {
             instance = this;
