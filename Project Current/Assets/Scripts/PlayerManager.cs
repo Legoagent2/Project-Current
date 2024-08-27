@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 using JC.FDG.InputManager;
 
 namespace JC.FDG.Player

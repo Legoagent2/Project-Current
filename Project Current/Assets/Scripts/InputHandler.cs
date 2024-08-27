@@ -8,7 +8,8 @@ namespace JC.FDG.InputManager
     {
         public static InputHandler instance;
         private RaycastHit hit; // what we hit
-        // Start is called before the first frame update
+                                // Start is called before the first frame update
+        private List<Transform> selectedUnits = new List<Transform>();
         void Start()
         {
             instance = this;
@@ -24,6 +25,7 @@ namespace JC.FDG.InputManager
         {
             if (Input.GetMouseButtonDown(0))
             {
+                //create ray
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 if (Physics.Raycast(ray, out hit))//check if we hit something
                 {
@@ -34,18 +36,29 @@ namespace JC.FDG.InputManager
                             SelectUnit(hit.transform);
                             break;
                         default: // if none of the above happens
+                            DeselectUnit();
                             break;
                     }
                 }
-                //create ray
                 //shoot ray to see if we hit our unit
                 // if so, do something
             }
         }
         private void SelectUnit(Transform unit)
         {
-            //set an obj on the unit 'highlight
+            DeselectUnit();
+            selectedUnits.Add(unit);
+            //set an obj on the unit 'highlight'
             unit.Find("Highlight").gameObject.SetActive(true);
+        }
+
+        private void DeselectUnit()
+        {
+            for (int i = 0; i < selectedUnits.Count; i++)
+            {
+                selectedUnits[i].Find("Highlight").gameObject.SetActive(false);
+            }
+            selectedUnits.Clear();
         }
     }
 }
