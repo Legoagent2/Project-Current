@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using JC.FDG.Units.Player;
 
 namespace JC.FDG.InputManager
 {
@@ -68,6 +69,32 @@ namespace JC.FDG.InputManager
                 }
                 isDragging = false;
             }
+
+            if (Input.GetMouseButtonDown(1) && HaveSelectedUnits())
+            {
+                //create ray
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                if (Physics.Raycast(ray, out hit))//check if we hit something
+                {
+                    LayerMask layerHit = hit.transform.gameObject.layer;
+                    switch (layerHit.value)
+                    {
+                        case 8: //units layer
+                            //placeholder
+                            break;
+                        case 9:
+                            //attackk or set traget
+                            break;
+                        default: // if none of the above happens
+                            foreach (Transform unit in selectedUnits)
+                            {
+                                PlayerUnits pU = unit.gameObject.GetComponent<PlayerUnits>();
+                                pU.MoveUnit(hit.point);
+                            }
+                            break;
+                    }
+                }
+            }
         }
         private void SelectUnit(Transform unit, bool canMultiselect = false)
         {
@@ -99,6 +126,18 @@ namespace JC.FDG.InputManager
             Camera cam = Camera.main;
             Bounds vpBounds = MultiSelect.GetVPBounds(cam, mousePos, Input.mousePosition);
             return vpBounds.Contains(cam.WorldToViewportPoint(tf.position));
+        }
+
+        private bool HaveSelectedUnits()
+        {
+            if (selectedUnits.Count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
