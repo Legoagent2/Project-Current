@@ -121,6 +121,7 @@ public class RTSCameraController : MonoBehaviour
                 if (Input.mousePosition.x > Screen.width - edgeSize)
                 {
                     newPosition += (transform.right * movementSpeed);
+                    //newPosition.x -= (movementSpeed * Time.deltaTime);
                     ChangeCursor(CursorArrow.RIGHT);
                     isCursorSet = true;
                 }
