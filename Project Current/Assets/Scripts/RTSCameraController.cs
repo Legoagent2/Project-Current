@@ -120,8 +120,8 @@ public class RTSCameraController : MonoBehaviour
                 // Move Right
                 if (Input.mousePosition.x > Screen.width - edgeSize)
                 {
-                    newPosition += (transform.right * movementSpeed);
-                    //newPosition.x -= (movementSpeed * Time.deltaTime);
+                    //newPosition += (transform.right * movementSpeed);
+                    newPosition.x += (movementSpeed * Time.deltaTime);
                     ChangeCursor(CursorArrow.RIGHT);
                     isCursorSet = true;
                 }
@@ -129,7 +129,8 @@ public class RTSCameraController : MonoBehaviour
                 // Move Left
                 else if (Input.mousePosition.x < edgeSize)
                 {
-                    newPosition += (transform.right * -movementSpeed);
+                    //newPosition += (transform.right * -movementSpeed);
+                    newPosition.x -= (movementSpeed * Time.deltaTime);
                     ChangeCursor(CursorArrow.LEFT);
                     isCursorSet = true;
                 }
@@ -137,7 +138,8 @@ public class RTSCameraController : MonoBehaviour
                 // Move Up
                 else if (Input.mousePosition.y > Screen.height - edgeSize)
                 {
-                    newPosition += (transform.forward * movementSpeed);
+                    //newPosition += (transform.forward * movementSpeed);
+                    newPosition.z += (movementSpeed * Time.deltaTime);
                     ChangeCursor(CursorArrow.UP);
                     isCursorSet = true;
                 }
@@ -145,7 +147,8 @@ public class RTSCameraController : MonoBehaviour
                 // Move Down
                 else if (Input.mousePosition.y < edgeSize)
                 {
-                    newPosition += (transform.forward * -movementSpeed);
+                    //newPosition += (transform.forward * -movementSpeed);
+                    newPosition.z -= (movementSpeed * Time.deltaTime);
                     ChangeCursor(CursorArrow.DOWN);
                     isCursorSet = true;
                 }

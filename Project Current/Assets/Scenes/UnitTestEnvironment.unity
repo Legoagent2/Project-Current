@@ -524,7 +524,7 @@ MonoBehaviour:
   moveWithEdgeScrolling: 1
   moveWithMouseDrag: 0
   fastSpeed: 0.5
-  normalSpeed: 0.05
+  normalSpeed: 50
   movementSensitivity: 10
   edgeSize: 200
   cursorArrowUp: {fileID: 2800000, guid: 7c3abeeea4784154e88cb1178b99c69b, type: 3}
