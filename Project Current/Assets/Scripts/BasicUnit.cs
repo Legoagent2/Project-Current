@@ -14,6 +14,8 @@ namespace JC.FDG.Units
             Healer
         };
 
+        [Header("Unit Settings")]
+        [Space(15)]
         public bool isPlayerUnit;
 
         public unitType type;
@@ -23,8 +25,12 @@ namespace JC.FDG.Units
         public GameObject playerPrefab;
         public GameObject enemyPrefab;
 
+        [Space(15)]
+        [Header("Unit Stats")]
+        [Space(40)]
         public int cost;
         public int attack;
+        public int atkRange;
         public int health;
         public int armor;
     }

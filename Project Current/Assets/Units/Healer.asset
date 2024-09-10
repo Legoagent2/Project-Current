@@ -19,7 +19,8 @@ MonoBehaviour:
     type: 3}
   enemyPrefab: {fileID: 8325440384413120428, guid: ae608fe87c53b3748a89d275b0fee346,
     type: 3}
-  cost: 0
-  attack: 0
-  health: 0
+  cost: 250
+  attack: 25
+  atkRange: 10
+  health: 50
   armor: 0
