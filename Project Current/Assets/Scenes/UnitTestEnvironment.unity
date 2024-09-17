@@ -492,9 +492,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94de53807b7bcdf4c8873b19c5e70236, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  worker: {fileID: 0}
-  warrior: {fileID: 0}
-  healer: {fileID: 0}
+  worker: {fileID: 11400000, guid: 3207ba7eab7d4ea459a8fa2c8c39cf03, type: 2}
+  warrior: {fileID: 11400000, guid: 39ad6ae394affdf4e8d4df4a2c690731, type: 2}
+  healer: {fileID: 11400000, guid: 4f427f17c1e296e48bb06834c8e34a13, type: 2}
 --- !u!1 &946489824
 GameObject:
   m_ObjectHideFlags: 0
@@ -647,6 +647,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerUnits: {fileID: 806968287}
+  enemyUnits: {fileID: 1571648203}
 --- !u!1001 &1348742785
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -846,9 +847,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94de53807b7bcdf4c8873b19c5e70236, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  worker: {fileID: 0}
-  warrior: {fileID: 0}
-  healer: {fileID: 0}
+  worker: {fileID: 11400000, guid: 3207ba7eab7d4ea459a8fa2c8c39cf03, type: 2}
+  warrior: {fileID: 11400000, guid: 39ad6ae394affdf4e8d4df4a2c690731, type: 2}
+  healer: {fileID: 11400000, guid: 4f427f17c1e296e48bb06834c8e34a13, type: 2}
 --- !u!4 &1571648203
 Transform:
   m_ObjectHideFlags: 0
