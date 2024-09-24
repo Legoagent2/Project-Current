@@ -226,6 +226,9 @@ MonoBehaviour:
     attack: 0
     health: 0
     armor: 0
+  unitStatDisplay: {fileID: 7680952127273508556}
+  healthBarAmount: {fileID: 2125978341250784347}
+  currentHealth: 0
 --- !u!1001 &6148395969126465287
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -345,9 +348,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f88055e75a0e35846947a0db44e11b9b, type: 3}
+--- !u!114 &2125978341250784347 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5247682608679396188, guid: f88055e75a0e35846947a0db44e11b9b,
+    type: 3}
+  m_PrefabInstance: {fileID: 6148395969126465287}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &5716926119515643741 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1875159403231453274, guid: f88055e75a0e35846947a0db44e11b9b,
+    type: 3}
+  m_PrefabInstance: {fileID: 6148395969126465287}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7680952127273508556 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4596843493075378635, guid: f88055e75a0e35846947a0db44e11b9b,
     type: 3}
   m_PrefabInstance: {fileID: 6148395969126465287}
   m_PrefabAsset: {fileID: 0}

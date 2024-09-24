@@ -16,12 +16,13 @@ namespace JC.FDG.Player
         private void Awake()
         {
             instance = this;
+            Units.Unithandler.instance.SetBasicUnitStats(playerUnits);
+            Units.Unithandler.instance.SetBasicUnitStats(enemyUnits);
         }
 
         private void Start()
         {
-            Units.Unithandler.instance.SetBasicUnitStats(playerUnits);
-            Units.Unithandler.instance.SetBasicUnitStats(enemyUnits);
+            
         }
 
         private void Update()

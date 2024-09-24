@@ -10,7 +10,7 @@ namespace JC.FDG.InputManager
         public static InputHandler instance;
         private RaycastHit hit; // what we hit
                                 // Start is called before the first frame update
-        private List<Transform> selectedUnits = new List<Transform>();
+        public List<Transform> selectedUnits = new List<Transform>();
         private bool isDragging = false;
         private Vector3 mousePos;
 
