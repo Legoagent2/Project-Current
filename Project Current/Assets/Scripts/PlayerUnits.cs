@@ -10,7 +10,7 @@ namespace JC.FDG.Units.Player
     {
         private NavMeshAgent navAgent;
 
-        public int cost, attack, atkRange, health, armor;
+        public UnitStatTypes.Base baseStats;
 
         public void OnEnable()
         {

@@ -13,14 +13,18 @@ namespace JC.FDG.Player
         public Transform playerUnits;
         public Transform enemyUnits;
 
-        void Start()
+        private void Awake()
         {
             instance = this;
-            Units.Unithandler.instance.SetBasicUnitStats(playerUnits);
-            //Units.UnitHandler.instance.SetBasicUnitStats(enemyUnits);
         }
 
-        void Update()
+        private void Start()
+        {
+            Units.Unithandler.instance.SetBasicUnitStats(playerUnits);
+            Units.Unithandler.instance.SetBasicUnitStats(enemyUnits);
+        }
+
+        private void Update()
         {
             InputHandler.instance.HandleUnitMovement();
         }
