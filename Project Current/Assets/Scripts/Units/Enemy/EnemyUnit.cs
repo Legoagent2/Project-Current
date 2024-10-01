@@ -31,6 +31,8 @@ namespace JC.FDG.Units.Enemy
 
         public float atkCooldown;
 
+        private bool deathCall;
+
         private void Start()
         {
             navAgent = gameObject.GetComponent<NavMeshAgent>();
@@ -103,7 +105,10 @@ namespace JC.FDG.Units.Enemy
 
                 if (distance <= baseStats.aggroRange)
                 {
-                    navAgent.SetDestination(aggroTarget.position);
+                    if (deathCall == false)
+                    {
+                        navAgent.SetDestination(aggroTarget.position);
+                    }
                 }
             }
         }
@@ -121,6 +126,7 @@ namespace JC.FDG.Units.Enemy
 
         private void Die()
         {
+            deathCall = true;
             Destroy(gameObject);
         }
     }
