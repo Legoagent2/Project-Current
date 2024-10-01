@@ -1,18 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class BasicBuilding : MonoBehaviour
+namespace JC.FDG.Buildings
 {
-    // Start is called before the first frame update
-    void Start()
+    [CreateAssetMenu(fileName = "Building", menuName = "New Building/Basic")]
+    public class BasicBuilding : ScriptableObject
     {
-        
-    }
+        public enum buildingType
+        {
+            Barracks
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        [Space(15)]
+        [Header("Building Settings")]
+
+        public buildingType type;
+        public new string name;
+        public GameObject buildingPrefab;
+        public BuildingActions.BuildingUnits Units;
+
+        [Space(15)]
+        [Header("Building Base Stats")]
+        [Space(40)]
+
+        public BuildingStatTypes.Base baseStats;
     }
 }
