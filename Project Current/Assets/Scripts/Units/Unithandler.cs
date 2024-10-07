@@ -19,6 +19,12 @@ namespace JC.FDG.Units
             instance = this;
         }
 
+        private void Start()
+        {
+            pUnitLayer = LayerMask.NameToLayer("PlayerUnits");
+            eUnitLayer = LayerMask.NameToLayer("EnemyUnits");
+        }
+
         public UnitStatTypes.Base GetBasicUnitStats(string type)
         {
             BasicUnit unit;

@@ -106,6 +106,7 @@ namespace JC.FDG.Units.Enemy
 
                 if (distance <= baseStats.aggroRange)
                 {
+                    navAgent.SetDestination(aggroTarget.position);
                     if (deathCall == false)
                     {
                         navAgent.SetDestination(aggroTarget.position);
