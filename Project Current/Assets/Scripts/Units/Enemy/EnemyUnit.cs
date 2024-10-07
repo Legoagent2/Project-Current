@@ -71,6 +71,7 @@ namespace JC.FDG.Units.Enemy
                     aggroTarget = rangeColliders[i].gameObject.transform;
                     aggroUnit = aggroTarget.gameObject.GetComponent<Player.PlayerUnits>();
                     hasAggro = true;
+                    Debug.Log("TARGET ACQUIRED");
                     break;
                 }
             }
