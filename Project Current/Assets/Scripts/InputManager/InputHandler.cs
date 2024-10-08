@@ -9,17 +9,13 @@ namespace JC.FDG.InputManager
     {
         public static InputHandler instance;
         private RaycastHit hit; // what we hit
-                                // Start is called before the first frame update
         public List<Transform> selectedUnits = new List<Transform>();
+        public Transform selectedBuilding = null;
+        public LayerMask interactableLayer = new LayerMask();
         private bool isDragging = false;
         private Vector3 mousePos;
 
         private void Awake()
-        {
-            instance = this;
-        }
-
-        private void Start()
         {
             instance = this;
         }
@@ -41,9 +37,17 @@ namespace JC.FDG.InputManager
                 mousePos = Input.mousePosition;
                 //create ray
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                if (Physics.Raycast(ray, out hit))//check if we hit something
+                if (Physics.Raycast(ray, out hit, 100, interactableLayer))//check if we hit something
                 {
-                    LayerMask layerHit = hit.transform.gameObject.layer;
+                    if (addedUnit(hit.transform, Input.GetKey(KeyCode.LeftShift)))
+                    {
+                        // be able to do stuff with units
+                    }
+                    else if (addedBuilding(hit.transform))
+                    {
+                        //be able to do stuff with building
+                    }
+                    /*LayerMask layerHit = hit.transform.gameObject.layer;
                     switch (layerHit.value)
                     {
                         case 8: //units layer
@@ -54,10 +58,13 @@ namespace JC.FDG.InputManager
                             isDragging = true;
                             DeselectUnit();
                             break;
-                    }
+                    }*/
                 }
-                //shoot ray to see if we hit our unit
-                // if so, do something
+                else
+                {
+                    isDragging = true;
+                    DeselectUnit();
+                }
             }
 
             if (Input.GetMouseButtonUp(0))
@@ -68,7 +75,7 @@ namespace JC.FDG.InputManager
                     {
                         if (IsWithinSelectionBounds(unit))
                         {
-                            SelectUnit(unit, true);
+                            addedUnit(unit, true);
                         }
                     }
                 }
@@ -101,7 +108,7 @@ namespace JC.FDG.InputManager
                 }
             }
         }
-        private void SelectUnit(Transform unit, bool canMultiselect = false)
+        /*private void SelectUnit(Transform unit, bool canMultiselect = false)
         {
             if (!canMultiselect)
             {
@@ -110,13 +117,19 @@ namespace JC.FDG.InputManager
             selectedUnits.Add(unit);
             //set an obj on the unit 'highlight'
             unit.Find("Highlight").gameObject.SetActive(true);
-        }
+        }*/
 
         private void DeselectUnit()
         {
+            if (selectedBuilding)
+            {
+                selectedBuilding.gameObject.GetComponent<Interactables.IBuilding>().OnInteractExit();
+                selectedBuilding = null;
+            }
             for (int i = 0; i < selectedUnits.Count; i++)
             {
-                selectedUnits[i].Find("Highlight").gameObject.SetActive(false);
+                selectedUnits[i].gameObject.GetComponent<Interactables.IUnit>().OnInteractExit();
+                //selectedUnits[i].Find("Highlight").gameObject.SetActive(false);
             }
             selectedUnits.Clear();
         }
@@ -142,6 +155,41 @@ namespace JC.FDG.InputManager
             else
             {
                 return false;
+            }
+        }
+
+        private Interactables.IUnit addedUnit(Transform tf, bool canMultiselect = false)
+        {
+            Interactables.IUnit iUnit = tf.GetComponent<Interactables.IUnit>();
+            if (iUnit)
+            {
+                if (!canMultiselect)
+                {
+                    DeselectUnit();
+                }
+                selectedUnits.Add(iUnit.gameObject.transform);
+                iUnit.OnInteractEnter();
+                return iUnit;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        private Interactables.IBuilding addedBuilding(Transform tf)
+        {
+            Interactables.IBuilding iBuilding = tf.GetComponent<Interactables.IBuilding>();
+            if (iBuilding)
+            {
+                DeselectUnit();
+                selectedBuilding = iBuilding.gameObject.transform;
+                iBuilding.OnInteractEnter();
+                return iBuilding;
+            }
+            else
+            {
+                return null;
             }
         }
     }

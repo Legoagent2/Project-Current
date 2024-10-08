@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 8700091177194197002}
   - component: {fileID: 6368460276131579717}
   - component: {fileID: 3147015303316042387}
+  - component: {fileID: 3341928287908435525}
   m_Layer: 8
   m_Name: PlayerUnit
   m_TagString: Untagged
@@ -185,8 +186,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2, y: 1, z: 2.5}
+  m_Center: {x: 0, y: 0, z: -0.64}
 --- !u!195 &6368460276131579717
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -233,6 +234,20 @@ MonoBehaviour:
   healthBarAmount: {fileID: 2125978341250784347}
   currentHealth: 0
   atkCooldown: 0
+--- !u!114 &3341928287908435525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5513273226536721192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 340a500052e80de438cd1f6231c705d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isInteracting: 0
+  highlight: {fileID: 3322521428099648902}
 --- !u!1001 &3558689897768618318
 PrefabInstance:
   m_ObjectHideFlags: 0

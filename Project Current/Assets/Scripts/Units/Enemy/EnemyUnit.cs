@@ -66,7 +66,7 @@ namespace JC.FDG.Units.Enemy
 
             for (int i = 0; i < rangeColliders.Length; i++)
             {
-                if (rangeColliders[i].gameObject.layer == Unithandler.instance.pUnitLayer)
+                if (rangeColliders[i].gameObject.layer == Unithandler.instance.pUnitLayers)
                 {
                     aggroTarget = rangeColliders[i].gameObject.transform;
                     aggroUnit = aggroTarget.gameObject.GetComponent<Player.PlayerUnits>();
