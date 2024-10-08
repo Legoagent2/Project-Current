@@ -12,7 +12,7 @@ namespace JC.FDG.Units
         [SerializeField] 
         private BasicUnit worker, warrior, healer;
 
-        public LayerMask pUnitLayers, eUnitLayer;
+        public LayerMask pUnitLayer, eUnitLayer;
 
         private void Awake()
         {
@@ -21,7 +21,7 @@ namespace JC.FDG.Units
 
         private void Start()
         {
-            pUnitLayers = LayerMask.NameToLayer("Interactables");
+            pUnitLayer = LayerMask.NameToLayer("Interactables");
             eUnitLayer = LayerMask.NameToLayer("EnemyUnits");
         }
 
