@@ -35,7 +35,7 @@ namespace JC.FDG.Units.Enemy
 
         private void Start()
         {
-            navAgent = gameObject.GetComponent<NavMeshAgent>();
+            navAgent = GetComponent<NavMeshAgent>();
             currentHealth = baseStats.health;
         }
 
@@ -71,7 +71,6 @@ namespace JC.FDG.Units.Enemy
                     aggroTarget = rangeColliders[i].gameObject.transform;
                     aggroUnit = aggroTarget.gameObject.GetComponent<Player.PlayerUnits>();
                     hasAggro = true;
-                    Debug.Log("TARGET ACQUIRED");
                     break;
                 }
             }
