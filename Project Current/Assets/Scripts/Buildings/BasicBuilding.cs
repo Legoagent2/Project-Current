@@ -16,6 +16,8 @@ namespace JC.FDG.Buildings
         public buildingType type;
         public new string name;
         public GameObject buildingPrefab;
+        public GameObject icon;
+        public float spawnTime;
 
         [Space(15)]
         [Header("Building Base Stats")]
