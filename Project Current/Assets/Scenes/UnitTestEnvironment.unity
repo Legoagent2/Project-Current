@@ -171,6 +171,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedUnits: []
+  selectedBuilding: {fileID: 0}
+  interactableLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!114 &40062913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -714,7 +718,7 @@ PrefabInstance:
     - target: {fileID: 5968067731849236615, guid: fd6c6959dd750d44383440f74642d1d9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 13.05
       objectReference: {fileID: 0}
     - target: {fileID: 5968067731849236615, guid: fd6c6959dd750d44383440f74642d1d9,
         type: 3}
@@ -724,7 +728,7 @@ PrefabInstance:
     - target: {fileID: 5968067731849236615, guid: fd6c6959dd750d44383440f74642d1d9,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 15.54
       objectReference: {fileID: 0}
     - target: {fileID: 5968067731849236615, guid: fd6c6959dd750d44383440f74642d1d9,
         type: 3}
@@ -765,6 +769,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Building
+      objectReference: {fileID: 0}
+    - target: {fileID: 5968067731849236619, guid: fd6c6959dd750d44383440f74642d1d9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd6c6959dd750d44383440f74642d1d9, type: 3}

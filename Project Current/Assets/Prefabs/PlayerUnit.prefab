@@ -576,3 +576,19 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6148395969126465287}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5560261169894360515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7680952127273508556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f622f3b63f146640b4568f50dab6b79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 0
+  armor: 0
+  currentHealth: 0
+  healthBarAmount: {fileID: 2125978341250784347}
