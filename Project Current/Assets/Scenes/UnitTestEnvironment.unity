@@ -328,6 +328,7 @@ GameObject:
   - component: {fileID: 86206349}
   - component: {fileID: 86206348}
   - component: {fileID: 86206350}
+  - component: {fileID: 86206351}
   m_Layer: 5
   m_Name: ActionsFrame
   m_TagString: Untagged
@@ -409,6 +410,21 @@ MonoBehaviour:
   actionButton: {fileID: 8738526802417215005, guid: f26b2ec795b9666478b9a7e58342611f,
     type: 3}
   layoutGroup: {fileID: 221083496}
+  spawnQueue: []
+  spawnOrder: []
+  spawnPoint: {fileID: 0}
+--- !u!114 &86206351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86206346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8132c0fd75fd334993e44bb8f5f812e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &156591128 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1247924697970292843, guid: ae608fe87c53b3748a89d275b0fee346,
