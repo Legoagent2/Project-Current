@@ -14,6 +14,9 @@ namespace JC.FDG.UI.HUD
 
         private List<Button> buttons = new List<Button>();
         private PlayerActions actionsList = null;
+        
+        public List<float> spawnQueue = new List<float>();
+        public List<GameObject> spawnOrder = new List<GameObject>();
 
         private void Awake()
         {
@@ -61,15 +64,28 @@ namespace JC.FDG.UI.HUD
         {
             if (IsUnit(objectToSpawn))
             {
-
+                Units.BasicUnit unit = IsUnit(objectToSpawn);
+                spawnQueue.Add(unit.spawnTime);
+                spawnOrder.Add(unit.playerPrefab);
             }
-            else if (Isbuilding(objectToSpawn))
+            else if (IsBuilding(objectToSpawn))
             {
-
+                Buildings.BasicBuilding building = IsBuilding(objectToSpawn);
+                spawnQueue.Add(building.spawnTime);
+                spawnOrder.Add(building.buildingPrefab);
             }
             else
             {
                 Debug.Log($"{objectToSpawn} is not a spawnable object");
+            }
+
+            if (spawnQueue.Count == 1)
+            {
+                ActionTimer.instance.StartCoroutine(ActionTimer.instance.SpawnQueueTimer());
+            }
+            else if (spawnQueue.Count == 0)
+            {
+                ActionTimer.instance.StopAllCoroutines();
             }
         }
 
@@ -88,7 +104,7 @@ namespace JC.FDG.UI.HUD
             return null;
         }
 
-        private Buildings.BasicBuilding Isbuilding(string name)
+        private Buildings.BasicBuilding IsBuilding(string name)
         {
             if (actionsList.basicBuildings.Count > 0)
             {
