@@ -21,6 +21,8 @@ namespace JC.FDG.UI.HUD
 
                 yield return new WaitForSeconds(ActionFrame.instance.spawnQueue[0]);
 
+                ActionFrame.instance.SpawnObject();
+
                 ActionFrame.instance.spawnQueue.Remove(ActionFrame.instance.spawnQueue[0]);
 
                 if (ActionFrame.instance.spawnQueue.Count > 0)

@@ -14,21 +14,25 @@ namespace JC.FDG.UI.HUD
 
         private List<Button> buttons = new List<Button>();
         private PlayerActions actionsList = null;
-        
+
         public List<float> spawnQueue = new List<float>();
         public List<GameObject> spawnOrder = new List<GameObject>();
+
+        public GameObject spawnPoint = null;
 
         private void Awake()
         {
             instance = this;
         }
 
-        public void SetActionButtons(PlayerActions actions)
+        public void SetActionButtons(PlayerActions actions, GameObject spawnLocation)
         {
             actionsList = actions;
+            spawnPoint = spawnLocation;
+
             if (actions.basicUnits.Count > 0)
             {
-                foreach(Units.BasicUnit unit in actions.basicUnits)
+                foreach (Units.BasicUnit unit in actions.basicUnits)
                 {
                     Button btn = Instantiate(actionButton, layoutGroup);
                     btn.name = unit.name;
@@ -40,7 +44,7 @@ namespace JC.FDG.UI.HUD
 
             if (actions.basicBuildings.Count > 0)
             {
-                foreach(Buildings.BasicBuilding building in actions.basicBuildings)
+                foreach (Buildings.BasicBuilding building in actions.basicBuildings)
                 {
                     Button btn = Instantiate(actionButton, layoutGroup);
                     btn.name = building.name;
@@ -53,7 +57,7 @@ namespace JC.FDG.UI.HUD
 
         public void ClearActions()
         {
-            foreach(Button btn in buttons)
+            foreach (Button btn in buttons)
             {
                 Destroy(btn.gameObject);
             }
@@ -93,7 +97,7 @@ namespace JC.FDG.UI.HUD
         {
             if (actionsList.basicUnits.Count > 0)
             {
-                foreach(Units.BasicUnit unit in actionsList.basicUnits)
+                foreach (Units.BasicUnit unit in actionsList.basicUnits)
                 {
                     if (unit.name == name)
                     {
@@ -117,6 +121,15 @@ namespace JC.FDG.UI.HUD
                 }
             }
             return null;
+        }
+
+        public void SpawnObject()
+        {
+            GameObject spawnedObject = Instantiate(spawnOrder[0], new Vector3(spawnPoint.transform.position.x - 4, spawnPoint.transform.position.y, spawnPoint.transform.position.z), Quaternion.identity);
+
+            spawnedObject.GetComponent<Units.Player.PlayerUnits>().baseStats.health = 50;
+
+
         }
     }
 }

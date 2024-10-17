@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using JC.FDG.Units.Player;
 
 namespace JC.FDG.InputManager
@@ -34,6 +35,10 @@ namespace JC.FDG.InputManager
         {
             if (Input.GetMouseButtonDown(0))
             {
+                if (EventSystem.current.IsPointerOverGameObject())
+                {
+                    return;
+                }
                 mousePos = Input.mousePosition;
                 //create ray
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
