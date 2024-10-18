@@ -17,8 +17,9 @@ namespace JC.FDG.UI.HUD
 
         public List<float> spawnQueue = new List<float>();
         public List<GameObject> spawnOrder = new List<GameObject>();
-
+        public Vector3 testCoordinates = new Vector3(0, 0, 0);
         public GameObject spawnPoint = null;
+        public GameObject unitClass;
 
         private void Awake()
         {
@@ -125,11 +126,11 @@ namespace JC.FDG.UI.HUD
 
         public void SpawnObject()
         {
-            GameObject spawnedObject = Instantiate(spawnOrder[0], new Vector3(spawnPoint.transform.position.x - 4, spawnPoint.transform.position.y, spawnPoint.transform.position.z), Quaternion.identity);
-
+            GameObject spawnedObject = Instantiate(spawnOrder[0], new Vector3(spawnPoint.transform.parent.position.x, spawnPoint.transform.parent.position.y, spawnPoint.transform.parent.position.z), Quaternion.identity);
             spawnedObject.GetComponent<Units.Player.PlayerUnits>().baseStats.health = 50;
-
-
+            spawnedObject.transform.parent = unitClass.transform;
+            Debug.Log("Parnet pos: " + spawnPoint.transform.position);
+            //spawnedObject.GetComponent<Units.Player.PlayerUnits>().MoveUnit(spawnPoint.transform.position);
         }
     }
 }

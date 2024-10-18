@@ -15,7 +15,7 @@ MonoBehaviour:
   isPlayerUnit: 0
   type: 0
   name: 
-  playerPrefab: {fileID: 5513273226536721192, guid: 619d354b5257f4f4dbae96040ee9a2e6,
+  playerPrefab: {fileID: 459274191133161461, guid: 619d354b5257f4f4dbae96040ee9a2e6,
     type: 3}
   enemyPrefab: {fileID: 8325440384413120428, guid: ae608fe87c53b3748a89d275b0fee346,
     type: 3}

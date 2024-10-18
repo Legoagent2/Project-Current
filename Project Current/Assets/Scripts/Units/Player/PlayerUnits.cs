@@ -9,19 +9,19 @@ namespace JC.FDG.Units.Player
     [RequireComponent(typeof(NavMeshAgent))]
     public class PlayerUnits : MonoBehaviour
     {
-        private NavMeshAgent navAgent;
+        public NavMeshAgent navAgent;
 
         public UnitStatTypes.Base baseStats;
 
-        private Collider[] rangeColliders;
+        public Collider[] rangeColliders;
 
-        private Transform aggroTarget;
+        public Transform aggroTarget;
 
-        private Enemy.EnemyUnit aggroUnit;
+        public Enemy.EnemyUnit aggroUnit;
 
-        private bool hasAggro = false;
+        public bool hasAggro = false;
 
-        private float distance;
+        public float distance;
 
         public GameObject unitStatDisplay;
 
@@ -33,23 +33,25 @@ namespace JC.FDG.Units.Player
 
         public void Start()
         {
+            Debug.Log("Prefab created.");
             navAgent = GetComponent<NavMeshAgent>();
             currentHealth = baseStats.health;
         }
 
         private void Update()
         {
-            HandleHealth();
+            Debug.Log("Frame goob.");
+            this.HandleHealth();
             atkCooldown -= Time.deltaTime;
 
             if (!hasAggro)
             {
-                CheckForEnemyTargets();
+                this.CheckForEnemyTargets();
             }
             else
             {
-                Attack();
-                MoveToAggroTarget();
+                this.Attack();
+                this.MoveToAggroTarget();
             }
         }
 
@@ -69,9 +71,16 @@ namespace JC.FDG.Units.Player
             }
         }
 
-        public void MoveUnit(Vector3 _destination)
+        public void MoveUnit(Vector3 destination)
         {
-            navAgent.SetDestination(_destination);
+            if (destination != null)
+            {
+                Debug.Log("Destination Set: " + destination);
+                navAgent.SetDestination(destination);
+            } else
+            {
+                Debug.Log("Destination unknown. Please try again.");
+            }
         }
 
         private void Attack()
