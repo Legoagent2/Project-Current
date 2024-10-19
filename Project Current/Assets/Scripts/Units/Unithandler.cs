@@ -34,10 +34,10 @@ namespace JC.FDG.Units
                     unit = worker;
                     break;
                 case "warrior":
-                    unit = worker;
+                    unit = warrior;
                     break;
                 case "healer":
-                    unit = worker;
+                    unit = healer;
                     break;
                 default:
                     Debug.Log($"Unit Type: {type} could not be found or doesn't exist.");
