@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Project Current/Assets/ProceduralTerrainPainter/Runtime.meta
 guid: e4302148c55f089458b8e4ebd66c60e3
+========
+guid: bb4d57d4330dca4409235fae7db3e495
+>>>>>>>> main:Project Current/Assets/Materials/Textures/Map Textures.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

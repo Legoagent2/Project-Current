@@ -1,5 +1,9 @@
 fileFormatVersion: 2
-guid: 543288219937b204c9c8b623877b23f6
+<<<<<<<< HEAD:Project Current/Assets/Materials/Textures/Gun.meta
+guid: 1b7bd162cbd775f41ad9c89a2c013c01
+========
+guid: 0edfd9ef51018944eb41431a8a052aa8
+>>>>>>>> Nicholas-Design-Branch:Project Current/Assets/Animations.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

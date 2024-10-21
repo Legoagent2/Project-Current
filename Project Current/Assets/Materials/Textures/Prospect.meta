@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Project Current/Assets/Materials/Textures/Prospect.meta
 guid: 6e6516ba203087b47ad102fac13bcca5
+========
+guid: b3959a4e8d932364b97e2c3ecbc023e9
+>>>>>>>> Nicholas-Design-Branch:Project Current/Assets/Prefabs/UI.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
