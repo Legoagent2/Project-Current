@@ -9,19 +9,19 @@ namespace JC.FDG.Units.Player
     [RequireComponent(typeof(NavMeshAgent))]
     public class PlayerUnits : MonoBehaviour
     {
-        private NavMeshAgent navAgent;
+        public NavMeshAgent navAgent;
 
         public UnitStatTypes.Base baseStats;
 
-        private Collider[] rangeColliders;
+        public Collider[] rangeColliders;
 
-        private Transform aggroTarget;
+        public Transform aggroTarget;
 
-        private Enemy.EnemyUnit aggroUnit;
+        public Enemy.EnemyUnit aggroUnit;
 
-        private bool hasAggro = false;
+        public bool hasAggro = false;
 
-        private float distance;
+        public float distance;
 
         public GameObject unitStatDisplay;
 
@@ -31,32 +31,33 @@ namespace JC.FDG.Units.Player
 
         public float atkCooldown;
 
-        private bool deathCall;
-
         public void Start()
         {
+            Debug.Log("Prefab created.");
             navAgent = GetComponent<NavMeshAgent>();
             currentHealth = baseStats.health;
         }
 
         private void Update()
         {
-            HandleHealth();
+            Debug.Log("Frame goob.");
+            this.HandleHealth();
             atkCooldown -= Time.deltaTime;
 
             if (!hasAggro)
             {
-                CheckForEnemyTargets();
+                this.CheckForEnemyTargets();
             }
             else
             {
-                Attack();
-                MoveToAggroTarget();
+                this.Attack();
+                this.MoveToAggroTarget();
             }
         }
 
         private void CheckForEnemyTargets()
         {
+            Debug.Log("Check for enemy.");
             rangeColliders = Physics.OverlapSphere(transform.position, baseStats.aggroRange);
 
             for (int i = 0; i < rangeColliders.Length; i++)
@@ -71,13 +72,21 @@ namespace JC.FDG.Units.Player
             }
         }
 
-        public void MoveUnit(Vector3 _destination)
+        public void MoveUnit(Vector3 destination)
         {
-            navAgent.SetDestination(_destination);
+            if (destination != null)
+            {
+                Debug.Log("Destination Set: " + destination);
+                navAgent.SetDestination(destination);
+            } else
+            {
+                Debug.Log("Destination unknown. Please try again.");
+            }
         }
 
         private void Attack()
         {
+            Debug.Log("Attack.");
             if (atkCooldown <= 0 && distance <= baseStats.atkRange + 1)
             {
                 aggroUnit.TakeDamage(baseStats.attack);
@@ -105,16 +114,14 @@ namespace JC.FDG.Units.Player
 
                 if (distance <= baseStats.aggroRange)
                 {
-                    if (deathCall == false)
-                    {
-                        navAgent.SetDestination(aggroTarget.position);
-                    }
+                    navAgent.SetDestination(aggroTarget.position);
                 }
             }
         }
 
         private void HandleHealth()
         {
+            Debug.Log("Handling health.");
             Camera camera = Camera.main;
             unitStatDisplay.transform.LookAt(unitStatDisplay.transform.position + camera.transform.rotation * Vector3.forward, camera.transform.rotation * Vector3.up);
             healthBarAmount.fillAmount = currentHealth / baseStats.health;
@@ -126,7 +133,6 @@ namespace JC.FDG.Units.Player
 
         private void Die()
         {
-            deathCall = true;
             InputManager.InputHandler.instance.selectedUnits.Remove(gameObject.transform);
             Destroy(gameObject);
         }
