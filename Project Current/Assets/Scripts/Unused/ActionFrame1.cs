@@ -1,4 +1,4 @@
-using System.Collections;
+/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -45,6 +45,18 @@ namespace JC.FDG.UI.HUD
                     buttons.Add(btn);
                 }
             }
+
+            /*if (actions.basicBuildings.Count > 0)
+            {
+                foreach (Buildings.BasicBuilding building in actions.basicBuildings)
+                {
+                    Button btn = Instantiate(actionButton, layoutGroup);
+                    btn.name = building.name;
+                    GameObject icon = Instantiate(building.icon, btn.transform);
+                    //add text
+                    buttons.Add(btn);
+                }
+            }
         }
 
         public void ClearActions()
@@ -60,6 +72,24 @@ namespace JC.FDG.UI.HUD
         public void StartSpawnTimer(string objectToSpawn)
         {
             Debug.Log("StartSpawnTimer" + unit.name);
+            /*if (IsUnit(objectToSpawn))
+            {
+                unit = IsUnit(objectToSpawn);
+                spawnQueue.Add(unit.spawnTime);
+                spawnOrder.Add(unit.playerPrefab);
+                Debug.Log("IsUnit" + unit.name);
+            }
+            else if (IsBuilding(objectToSpawn))
+            {
+                Buildings.BasicBuilding building = IsBuilding(objectToSpawn);
+                spawnQueue.Add(building.spawnTime);
+                spawnOrder.Add(building.buildingPrefab);
+            }
+            else
+            {
+                Debug.Log($"{objectToSpawn} is not a spawnable object");
+            }
+            //unit = IsUnit(objectToSpawn);
             spawnQueue.Add(unit.spawnTime);
             spawnOrder.Add(unit.playerPrefab);
             Debug.Log("IsUnit" + unit.name);
@@ -73,11 +103,50 @@ namespace JC.FDG.UI.HUD
             }
         }
 
+        private Units.BasicUnit IsUnit(string name)
+        {
+            if (actionsList.basicUnits.Count > 0)
+            {
+                foreach (Units.BasicUnit unit in actionsList.basicUnits)
+                {
+                    if (unit.name == name)
+                    {
+                        return unit;
+                    }
+                }
+            }
+            Debug.Log("IsUnit complete" + unit.name);
+            return null;
+        }
+
+        /*private Buildings.BasicBuilding IsBuilding(string name)
+        {
+            if (actionsList.basicBuildings.Count > 0)
+            {
+                foreach (Buildings.BasicBuilding building in actionsList.basicBuildings)
+                {
+                    if (building.name == name)
+                    {
+                        return building;
+                    }
+                }
+            }
+            return null;
+        }
+
         public void SpawnObject()
         {
             Debug.Log("SpawnObject" + unit.name);
             GameObject spawnedObject = Instantiate(unit.playerPrefab, new Vector3(spawnPoint.transform.parent.position.x, spawnPoint.transform.parent.position.y, spawnPoint.transform.parent.position.z), Quaternion.identity, unitClass);
             spawnedObject.GetComponent<Units.Player.PlayerUnits>().baseStats = unit.baseStats;
+            //GameObject spawnedObject = Instantiate(spawnOrder[0], new Vector3(spawnPoint.transform.parent.position.x, spawnPoint.transform.parent.position.y, spawnPoint.transform.parent.position.z), Quaternion.identity);
+            //spawnedObject.transform.parent = unitClass.transform;
+            //Debug.Log("Parnet pos: " + spawnPoint.transform.position);
+            //spawnedObject.GetComponent<Units.Player.PlayerUnits>().MoveUnit(spawnPoint.transform.position);
         }
     }
 }
+
+
+//public BuildingActions.BuildingUnits Units;
+*/
