@@ -30,6 +30,7 @@ namespace JC.FDG.Player
 
         public void SetBasicStats(Transform type)
         {
+            InputHandler.instance.HandleUnitMovement();
             foreach (Transform child in type)
             {
                 foreach (Transform tf in child)
