@@ -19,7 +19,8 @@ namespace JC.FDG.UI.HUD
         public List<GameObject> spawnOrder = new List<GameObject>();
         public Vector3 testCoordinates = new Vector3(0, 0, 0);
         public GameObject spawnPoint = null;
-        public GameObject unitClass;
+        public Transform unitClass;
+        public Units.BasicUnit unit;
 
         private void Awake()
         {
@@ -43,7 +44,7 @@ namespace JC.FDG.UI.HUD
                 }
             }
 
-            if (actions.basicBuildings.Count > 0)
+            /*if (actions.basicBuildings.Count > 0)
             {
                 foreach (Buildings.BasicBuilding building in actions.basicBuildings)
                 {
@@ -53,7 +54,7 @@ namespace JC.FDG.UI.HUD
                     //add text
                     buttons.Add(btn);
                 }
-            }
+            }*/
         }
 
         public void ClearActions()
@@ -69,16 +70,16 @@ namespace JC.FDG.UI.HUD
         {
             if (IsUnit(objectToSpawn))
             {
-                Units.BasicUnit unit = IsUnit(objectToSpawn);
+                unit = IsUnit(objectToSpawn);
                 spawnQueue.Add(unit.spawnTime);
                 spawnOrder.Add(unit.playerPrefab);
             }
-            else if (IsBuilding(objectToSpawn))
+            /*else if (IsBuilding(objectToSpawn))
             {
                 Buildings.BasicBuilding building = IsBuilding(objectToSpawn);
                 spawnQueue.Add(building.spawnTime);
                 spawnOrder.Add(building.buildingPrefab);
-            }
+            }*/
             else
             {
                 Debug.Log($"{objectToSpawn} is not a spawnable object");
@@ -109,7 +110,7 @@ namespace JC.FDG.UI.HUD
             return null;
         }
 
-        private Buildings.BasicBuilding IsBuilding(string name)
+        /*private Buildings.BasicBuilding IsBuilding(string name)
         {
             if (actionsList.basicBuildings.Count > 0)
             {
@@ -122,14 +123,16 @@ namespace JC.FDG.UI.HUD
                 }
             }
             return null;
-        }
+        }*/
 
         public void SpawnObject()
         {
-            GameObject spawnedObject = Instantiate(spawnOrder[0], new Vector3(spawnPoint.transform.parent.position.x, spawnPoint.transform.parent.position.y, spawnPoint.transform.parent.position.z), Quaternion.identity);
-            spawnedObject.GetComponent<Units.Player.PlayerUnits>().baseStats.health = 50;
-            spawnedObject.transform.parent = unitClass.transform;
-            Debug.Log("Parnet pos: " + spawnPoint.transform.position);
+            Debug.Log(unit.name);
+            GameObject spawnedObject = Instantiate(unit.playerPrefab, new Vector3(spawnPoint.transform.parent.position.x, spawnPoint.transform.parent.position.y, spawnPoint.transform.parent.position.z), Quaternion.identity, unitClass);
+            spawnedObject.GetComponent<Units.Player.PlayerUnits>().baseStats = unit.baseStats;
+            //GameObject spawnedObject = Instantiate(spawnOrder[0], new Vector3(spawnPoint.transform.parent.position.x, spawnPoint.transform.parent.position.y, spawnPoint.transform.parent.position.z), Quaternion.identity);
+            //spawnedObject.transform.parent = unitClass.transform;
+            //Debug.Log("Parnet pos: " + spawnPoint.transform.position);
             //spawnedObject.GetComponent<Units.Player.PlayerUnits>().MoveUnit(spawnPoint.transform.position);
         }
     }
