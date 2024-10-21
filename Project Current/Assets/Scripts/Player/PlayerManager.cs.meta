@@ -3,7 +3,13 @@ guid: 44879c769f1be6841ade259580177205
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - playerUnits: {fileID: 3896705714038214925, guid: 619d354b5257f4f4dbae96040ee9a2e6,
+      type: 3}
+  - enemyUnits: {fileID: 1247924697970292843, guid: ae608fe87c53b3748a89d275b0fee346,
+      type: 3}
+  - playerBuildings: {fileID: 5968067731849236615, guid: fd6c6959dd750d44383440f74642d1d9,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -35,7 +35,7 @@ namespace JC.FDG.Units.Enemy
 
         private void Start()
         {
-            navAgent = gameObject.GetComponent<NavMeshAgent>();
+            navAgent = GetComponent<NavMeshAgent>();
             currentHealth = baseStats.health;
         }
 
@@ -105,6 +105,7 @@ namespace JC.FDG.Units.Enemy
 
                 if (distance <= baseStats.aggroRange)
                 {
+                    navAgent.SetDestination(aggroTarget.position);
                     if (deathCall == false)
                     {
                         navAgent.SetDestination(aggroTarget.position);
