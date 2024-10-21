@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Project Current/Assets/Materials/Textures/Map Textures.meta
+guid: 6f1a6f15f72b82547af4203031dede83
+========
 guid: 1b7bd162cbd775f41ad9c89a2c013c01
+>>>>>>>> main:Project Current/Assets/Materials/Textures/Gun.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
