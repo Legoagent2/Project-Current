@@ -33,14 +33,12 @@ namespace JC.FDG.Units.Player
 
         public void Start()
         {
-            Debug.Log("Prefab created.");
             navAgent = GetComponent<NavMeshAgent>();
             currentHealth = baseStats.health;
         }
 
         private void Update()
         {
-            Debug.Log("Frame goob.");
             this.HandleHealth();
             atkCooldown -= Time.deltaTime;
 
@@ -57,7 +55,6 @@ namespace JC.FDG.Units.Player
 
         private void CheckForEnemyTargets()
         {
-            Debug.Log("Check for enemy.");
             rangeColliders = Physics.OverlapSphere(transform.position, baseStats.aggroRange);
 
             for (int i = 0; i < rangeColliders.Length; i++)
@@ -86,7 +83,6 @@ namespace JC.FDG.Units.Player
 
         private void Attack()
         {
-            Debug.Log("Attack.");
             if (atkCooldown <= 0 && distance <= baseStats.atkRange + 1)
             {
                 aggroUnit.TakeDamage(baseStats.attack);
@@ -121,7 +117,6 @@ namespace JC.FDG.Units.Player
 
         private void HandleHealth()
         {
-            Debug.Log("Handling health.");
             Camera camera = Camera.main;
             unitStatDisplay.transform.LookAt(unitStatDisplay.transform.position + camera.transform.rotation * Vector3.forward, camera.transform.rotation * Vector3.up);
             healthBarAmount.fillAmount = currentHealth / baseStats.health;
