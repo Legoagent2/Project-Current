@@ -24,6 +24,7 @@ namespace JC.FDG.Units
 
         public GameObject playerPrefab;
         public GameObject enemyPrefab;
+        public GameObject classPrefab;
         public GameObject icon;
         public float spawnTime;
 
