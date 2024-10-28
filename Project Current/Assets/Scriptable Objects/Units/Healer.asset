@@ -14,13 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerUnit: 0
   type: 2
-  name: healer
+  name: Healers
   playerPrefab: {fileID: 459274191133161461, guid: 619d354b5257f4f4dbae96040ee9a2e6,
     type: 3}
   enemyPrefab: {fileID: 8325440384413120428, guid: ae608fe87c53b3748a89d275b0fee346,
     type: 3}
+  classPrefab: {fileID: 0}
   icon: {fileID: 6235327740463869660, guid: 55d81790c84b1884a948ae9dc6621e7c, type: 3}
-  spawnTime: 5
+  spawnTime: 2
   baseStats:
     cost: 250
     aggroRange: 10

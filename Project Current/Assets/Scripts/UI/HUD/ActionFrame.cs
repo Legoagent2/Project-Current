@@ -17,8 +17,10 @@ namespace JC.FDG.UI.HUD
 
         public List<float> spawnQueue = new List<float>();
         public List<GameObject> spawnOrder = new List<GameObject>();
+        public List<Units.BasicUnit> spawnList = new List<Units.BasicUnit>();
         public Vector3 testCoordinates = new Vector3(0, 0, 0);
         public GameObject spawnPoint = null;
+        public List<GameObject> unitParents = new List<GameObject>();
         //public Transform unitClass;
         //public Units.BasicUnit unit;
 
@@ -72,6 +74,18 @@ namespace JC.FDG.UI.HUD
             return null;
         }
 
+        private GameObject CheckUnit(GameObject Check)
+        {
+            for (int index = 0; index < unitParents.Count; index++)
+            {
+                if (unitParents[index].name == Check.name)
+                {
+                    return unitParents[index];
+                }
+            }
+            return unitParents[0];
+        }
+
         public void StartSpawnTimer(string objectToSpawn)
         {
             if (IsUnit(objectToSpawn))
@@ -79,6 +93,7 @@ namespace JC.FDG.UI.HUD
                 Units.BasicUnit unit = IsUnit(objectToSpawn);
                 Debug.Log("StartSpawnTimer" + unit.name);
                 spawnQueue.Add(unit.spawnTime);
+                spawnList.Add(unit);
                 spawnOrder.Add(unit.playerPrefab);
             }
             //Debug.Log("IsUnit" + unit.name);
@@ -94,9 +109,11 @@ namespace JC.FDG.UI.HUD
 
         public void SpawnObject()
         {
-            //Debug.Log("SpawnObject" + unit.name);
-            GameObject spawnedObject = Instantiate(spawnOrder[0], new Vector3(spawnPoint.transform.parent.position.x, spawnPoint.transform.parent.position.y, spawnPoint.transform.parent.position.z), Quaternion.identity, unitClass);
-            //spawnedObject.GetComponent<Units.Player.PlayerUnits>().baseStats = spawnedObject.baseStats;
+            Debug.Log("SpawnObject" + spawnOrder[0].name);
+            GameObject unitParent = CheckUnit(spawnOrder[0]);
+            GameObject spawnedObject = Instantiate(spawnOrder[0], new Vector3(spawnPoint.transform.parent.position.x, spawnPoint.transform.parent.position.y, spawnPoint.transform.parent.position.z), Quaternion.identity, unitParent.transform);
+            spawnedObject.GetComponent<Units.Player.PlayerUnits>().baseStats.health = 50f;
+            spawnedObject.GetComponent<Units.Player.PlayerUnits>().baseStats = spawnList[0].baseStats;
         }
     }
 }
