@@ -20,7 +20,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 8325440384413120428, guid: ae608fe87c53b3748a89d275b0fee346,
     type: 3}
   icon: {fileID: 6235327740463869660, guid: 55d81790c84b1884a948ae9dc6621e7c, type: 3}
-  spawnTime: 0
+  spawnTime: 5
   baseStats:
     cost: 250
     aggroRange: 10
