@@ -21,6 +21,7 @@ namespace JC.FDG.UI.HUD
         public Vector3 testCoordinates = new Vector3(0, 0, 0);
         public GameObject spawnPoint = null;
         public List<GameObject> unitParents = new List<GameObject>();
+        private int spawnNum = 0;
         //public Transform unitClass;
         //public Units.BasicUnit unit;
 
@@ -74,7 +75,7 @@ namespace JC.FDG.UI.HUD
             return null;
         }
 
-        private GameObject CheckUnit(GameObject Check)
+        private GameObject CheckUnit(Units.BasicUnit Check)
         {
             for (int index = 0; index < unitParents.Count; index++)
             {
@@ -109,11 +110,12 @@ namespace JC.FDG.UI.HUD
 
         public void SpawnObject()
         {
-            Debug.Log("SpawnObject" + spawnOrder[0].name);
-            GameObject unitParent = CheckUnit(spawnOrder[0]);
+            Debug.Log("SpawnObject" + spawnList[spawnNum].name);
+            GameObject unitParent = CheckUnit(spawnList[spawnNum]);
             GameObject spawnedObject = Instantiate(spawnOrder[0], new Vector3(spawnPoint.transform.parent.position.x, spawnPoint.transform.parent.position.y, spawnPoint.transform.parent.position.z), Quaternion.identity, unitParent.transform);
             spawnedObject.GetComponent<Units.Player.PlayerUnits>().baseStats.health = 50f;
             spawnedObject.GetComponent<Units.Player.PlayerUnits>().baseStats = spawnList[0].baseStats;
+            spawnNum++;
         }
     }
 }
