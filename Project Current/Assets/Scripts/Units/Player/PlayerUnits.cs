@@ -13,6 +13,8 @@ namespace JC.FDG.Units.Player
 
         public UnitStatTypes.Base baseStats;
 
+        //public ResourceHandler resources;
+
         public Collider[] rangeColliders;
 
         public Transform aggroTarget;
@@ -128,6 +130,8 @@ namespace JC.FDG.Units.Player
 
         private void Die()
         {
+            ResourceHandler.instance.noUnits -= 1;
+            Debug.Log(ResourceHandler.instance.noUnits);
             InputManager.InputHandler.instance.selectedUnits.Remove(gameObject.transform);
             Destroy(gameObject);
         }
