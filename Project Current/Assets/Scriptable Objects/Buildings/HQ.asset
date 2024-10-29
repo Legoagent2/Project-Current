@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a89498d6b5967cb49a6e85a4fbcd2484, type: 3}
+  m_Name: HQ
+  m_EditorClassIdentifier: 
+  type: 0
+  name: HQ
+  buildingPrefab: {fileID: 5968067731849236619, guid: fd6c6959dd750d44383440f74642d1d9,
+    type: 3}
+  icon: {fileID: 6235327740463869660, guid: 55d81790c84b1884a948ae9dc6621e7c, type: 3}
+  spawnUnits:
+  - {fileID: 11400000, guid: 3207ba7eab7d4ea459a8fa2c8c39cf03, type: 2}
+  spawnTime: 0
+  baseStats:
+    health: 1000
+    armor: 50
+    attack: 0

@@ -7,7 +7,8 @@ namespace JC.FDG.Buildings
         public static BuildingHandler instance;
 
         [SerializeField]
-        private BasicBuilding Barracks;
+        public BasicBuilding Barracks;
+        public BasicBuilding HQ;
 
         private void Awake()
         {
@@ -19,8 +20,11 @@ namespace JC.FDG.Buildings
             BasicBuilding building;
             switch (type)
             {
-                case "barracks":
+                case "Barracks":
                     building = Barracks;
+                    break;
+                case "HQ":
+                    building = HQ;
                     break;
                 default:
                     Debug.Log($"Unit Type: {type} could not be found or doesn't exist.");

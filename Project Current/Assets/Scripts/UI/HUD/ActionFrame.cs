@@ -17,20 +17,23 @@ namespace JC.FDG.UI.HUD
 
         public List<float> spawnQueue = new List<float>();
         public List<GameObject> spawnOrder = new List<GameObject>();
+        public List<Units.BasicUnit> spawnList = new List<Units.BasicUnit>();
         public Vector3 testCoordinates = new Vector3(0, 0, 0);
         public GameObject spawnPoint = null;
-        public Transform unitClass;
-        public Units.BasicUnit unit;
+        public List<GameObject> unitParents = new List<GameObject>();
+        private int spawnNum = 0;
+        //public Transform unitClass;
+        //public Units.BasicUnit unit;
 
         private void Awake()
         {
-            Debug.Log("Awake" + unit.name);
+            //Debug.Log("Awake" + unit.name);
             instance = this;
         }
 
         public void SetActionButtons(PlayerActions actions, GameObject spawnLocation)
         {
-            Debug.Log("SetActionButtons" + unit.name);
+            //Debug.Log("SetActionButtons" + unit.name);
             actionsList = actions;
             spawnPoint = spawnLocation;
 
@@ -49,7 +52,7 @@ namespace JC.FDG.UI.HUD
 
         public void ClearActions()
         {
-            Debug.Log("ClearActions" + unit.name);
+            //Debug.Log("ClearActions" + unit.name);
             foreach (Button btn in buttons)
             {
                 Destroy(btn.gameObject);
@@ -57,12 +60,44 @@ namespace JC.FDG.UI.HUD
             buttons.Clear();
         }
 
+        private Units.BasicUnit IsUnit(string name)
+        {
+            if (actionsList.basicUnits.Count > 0)
+            {
+                foreach(Units.BasicUnit unit in actionsList.basicUnits)
+                {
+                    if(unit.name == name)
+                    {
+                        return unit;
+                    }
+                }
+            }
+            return null;
+        }
+
+        private GameObject CheckUnit(Units.BasicUnit Check)
+        {
+            for (int index = 0; index < unitParents.Count; index++)
+            {
+                if (unitParents[index].name == Check.name)
+                {
+                    return unitParents[index];
+                }
+            }
+            return unitParents[0];
+        }
+
         public void StartSpawnTimer(string objectToSpawn)
         {
-            Debug.Log("StartSpawnTimer" + unit.name);
-            spawnQueue.Add(unit.spawnTime);
-            spawnOrder.Add(unit.playerPrefab);
-            Debug.Log("IsUnit" + unit.name);
+            if (IsUnit(objectToSpawn))
+            {
+                Units.BasicUnit unit = IsUnit(objectToSpawn);
+                Debug.Log("StartSpawnTimer" + unit.name);
+                spawnQueue.Add(unit.spawnTime);
+                spawnList.Add(unit);
+                spawnOrder.Add(unit.playerPrefab);
+            }
+            //Debug.Log("IsUnit" + unit.name);
             if (spawnQueue.Count == 1)
             {
                 ActionTimer.instance.StartCoroutine(ActionTimer.instance.SpawnQueueTimer());
@@ -75,9 +110,12 @@ namespace JC.FDG.UI.HUD
 
         public void SpawnObject()
         {
-            Debug.Log("SpawnObject" + unit.name);
-            GameObject spawnedObject = Instantiate(unit.playerPrefab, new Vector3(spawnPoint.transform.parent.position.x, spawnPoint.transform.parent.position.y, spawnPoint.transform.parent.position.z), Quaternion.identity, unitClass);
-            spawnedObject.GetComponent<Units.Player.PlayerUnits>().baseStats = unit.baseStats;
+            Debug.Log("SpawnObject" + spawnList[spawnNum].name);
+            GameObject unitParent = CheckUnit(spawnList[spawnNum]);
+            GameObject spawnedObject = Instantiate(spawnOrder[0], new Vector3(spawnPoint.transform.parent.position.x, spawnPoint.transform.parent.position.y, spawnPoint.transform.parent.position.z), Quaternion.identity, unitParent.transform);
+            spawnedObject.GetComponent<Units.Player.PlayerUnits>().baseStats.health = 50f;
+            spawnedObject.GetComponent<Units.Player.PlayerUnits>().baseStats = spawnList[0].baseStats;
+            spawnNum++;
         }
     }
 }

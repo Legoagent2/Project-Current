@@ -1,5 +1,6 @@
 using UnityEngine;
 
+
 namespace JC.FDG.Buildings
 {
     public class BuildingStatTypes : ScriptableObject
