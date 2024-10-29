@@ -1,7 +1,7 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI%20Toolkit/MainMenuStyle.uss?fileID=7433441132597879392&amp;guid=b1c2cef75f2400040801edcb6a7447ab&amp;type=3#MainMenuStyle" />
-    <ui:VisualElement style="align-items: center; background-image: url(&apos;project://database/Assets/Scenes/Crater-Site_Map/Crater-Sites_Map.png?fileID=2800000&amp;guid=1004e5816714a744eb39224dc01e1155&amp;type=3#Crater-Sites_Map&apos;); height: 239px; width: 322px;" />
-    <ui:Label text="These controls were created in UI Builder" />
-    <ui:Button text="This is button1" display-tooltip-when-elided="true" name="button1" />
-    <ui:Toggle label="Number?" name="toggle1" />
+    <ui:VisualElement name="Logo" focusable="false" style="align-items: center; background-image: url(&apos;project://database/Assets/UI/Logo%20(Main%20Menu%20Title%20Screen).png?fileID=2800000&amp;guid=db479b25acb5fea468d98e10c74ee8d9&amp;type=3#Logo (Main Menu Title Screen)&apos;); height: 512px; width: 512px; justify-content: flex-start; -unity-text-align: upper-center; opacity: 1; flex-direction: column; flex-grow: initial; flex-shrink: initial; left: 40%; -unity-background-scale-mode: stretch-to-fill; transform-origin: center; translate: 0 0; position: relative; top: auto; visibility: visible; display: flex; flex-basis: auto;" />
+    <ui:Label text="These controls were created in UI Builder" style="align-items: center;" />
+    <ui:Button text="This is button1" display-tooltip-when-elided="true" name="button1" style="align-items: flex-end; width: 176px; height: 114px; -unity-text-align: middle-center; white-space: nowrap; background-image: url(&apos;project://database/Assets/UI/Button%20Off.png?fileID=21300000&amp;guid=f793bdfcec6aaaa449de7b40eddba7b6&amp;type=3#Button Off&apos;); -unity-background-scale-mode: scale-to-fit; -unity-slice-left: 0;" />
+    <ui:Toggle label="Number?" name="toggle1" style="justify-content: center; align-items: auto;" />
 </ui:UXML>
