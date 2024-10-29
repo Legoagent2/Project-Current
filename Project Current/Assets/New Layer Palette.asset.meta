@@ -1,8 +1,15 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Project Current/Assets/New Layer Palette.asset.meta
 guid: e89bef61b2ea2f640a6315504302f64e
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 11400000
+========
+guid: 8fc9790f2f4a2ad4a881088b320b8bd9
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+>>>>>>>> main:Project Current/Assets/Materials/Gun.mat.meta
   userData: 
   assetBundleName: 
   assetBundleVariant: 
