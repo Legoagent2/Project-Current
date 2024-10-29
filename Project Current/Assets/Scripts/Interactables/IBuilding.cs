@@ -4,7 +4,7 @@ namespace JC.FDG.Interactables
 {
     public class IBuilding : Interactable
     {
-        public Buildings.BuildingStatTypes.Base baseStats;
+        public UI.HUD.PlayerActions actions;
         public GameObject spawnMarker = null;
         public GameObject spawnMarkerGraphics = null;
         public float maxMarkerDistance = 10f;
@@ -12,7 +12,7 @@ namespace JC.FDG.Interactables
 
         public override void OnInteractEnter()
         {
-            UI.HUD.ActionFrame.instance.SetActionButtons(baseStats.buildingActions, spawnMarker);
+            UI.HUD.ActionFrame.instance.SetActionButtons(actions, spawnMarker);
             spawnMarkerGraphics.SetActive(true);
             base.OnInteractEnter();
             // add stuff

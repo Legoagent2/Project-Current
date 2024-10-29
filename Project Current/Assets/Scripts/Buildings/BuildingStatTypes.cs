@@ -9,7 +9,6 @@ namespace JC.FDG.Buildings
         public class Base
         {
             public float health, armor, attack;
-            public UI.HUD.PlayerActions buildingActions;
         }
     }
 }
