@@ -5,6 +5,7 @@ MonoImporter:
   serializedVersion: 2
   defaultReferences:
   - Barracks: {fileID: 11400000, guid: 7edab37e0b5db5d45a8d453ac22ae12d, type: 2}
+  - HQ: {fileID: 11400000, guid: 7edab37e0b5db5d45a8d453ac22ae12d, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

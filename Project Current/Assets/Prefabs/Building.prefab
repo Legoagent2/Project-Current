@@ -291,7 +291,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isInteracting: 0
   highlight: {fileID: 3000957564012215605}
-  actions: {fileID: 11400000, guid: 0700717f3120a0c43be03fc3a5427386, type: 2}
+  actions: {fileID: 11400000, guid: 13342472e62d5b54c9b9f5fd7d5157f0, type: 2}
   spawnMarker: {fileID: 6224458216639633493}
   spawnMarkerGraphics: {fileID: 8781697388665691963}
   maxMarkerDistance: 10

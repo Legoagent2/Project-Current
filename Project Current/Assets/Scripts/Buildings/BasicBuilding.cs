@@ -19,7 +19,6 @@ namespace JC.FDG.Buildings
         public new string name;
         public GameObject buildingPrefab;
         public GameObject icon;
-        public List<Units.BasicUnit> spawnUnits;
         public float spawnTime;
 
         [Space(15)]
