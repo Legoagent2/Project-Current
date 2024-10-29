@@ -175,7 +175,7 @@ GameObject:
   - component: {fileID: 8777721791318809427}
   - component: {fileID: 2359084169849844024}
   m_Layer: 8
-  m_Name: Building
+  m_Name: Barracks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
