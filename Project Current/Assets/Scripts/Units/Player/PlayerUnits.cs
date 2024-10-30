@@ -33,6 +33,8 @@ namespace JC.FDG.Units.Player
 
         public float atkCooldown;
 
+        public bool isMoving;
+
         public void Start()
         {
             navAgent = GetComponent<NavMeshAgent>();
@@ -50,8 +52,11 @@ namespace JC.FDG.Units.Player
             }
             else
             {
-                this.Attack();
-                this.MoveToAggroTarget();
+                if(!isMoving)
+                {
+                    this.Attack();
+                    this.MoveToAggroTarget();
+                }
             }
         }
 
@@ -73,6 +78,8 @@ namespace JC.FDG.Units.Player
 
         public void MoveUnit(Vector3 destination)
         {
+            isMoving = true;
+            Debug.Log(isMoving);
             if (destination != null)
             {
                 Debug.Log("Destination Set: " + destination);
@@ -81,6 +88,13 @@ namespace JC.FDG.Units.Player
             {
                 Debug.Log("Destination unknown. Please try again.");
             }
+            StartCoroutine(waitForRetry());
+        }
+
+        IEnumerator waitForRetry()
+        {
+            yield return new WaitForSeconds(3);
+            isMoving = false;
         }
 
         private void Attack()

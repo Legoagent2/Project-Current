@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: HQPlayerActions
   m_EditorClassIdentifier: 
   basicUnits:
-  - {fileID: 11400000, guid: 39ad6ae394affdf4e8d4df4a2c690731, type: 2}
-  - {fileID: 11400000, guid: 39ad6ae394affdf4e8d4df4a2c690731, type: 2}
+  - {fileID: 11400000, guid: 3207ba7eab7d4ea459a8fa2c8c39cf03, type: 2}
   basicBuildings:
   - {fileID: 11400000, guid: 7edab37e0b5db5d45a8d453ac22ae12d, type: 2}
