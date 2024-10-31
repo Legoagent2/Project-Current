@@ -3,3 +3,14 @@
 
 .button {
 }
+
+.logo {
+    align-items: center;
+    width: 512px;
+    background-image: url('project://database/Assets/UI/Logo%20(Main%20Menu%20Title%20Screen).png?fileID=2800000&guid=db479b25acb5fea468d98e10c74ee8d9&type=3#Logo (Main Menu Title Screen)');
+    height: 512px;
+    -unity-background-scale-mode: scale-to-fit;
+    left: 50%;
+    transform-origin: center;
+    translate: -256px 0;
+}
