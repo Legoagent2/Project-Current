@@ -2,17 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Crystal : MonoBehaviour
+namespace JC.FDG.Interactables
 {
-    // Start is called before the first frame update
-    void Start()
+    public class Crystal : MonoBehaviour
     {
-        
-    }
+        public void TakeDamage(float damage)
+        {
+            float totalDamage = damage - baseStats.armor;
+            currentHealth -= totalDamage;
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        private void Die()
+        {
+            Destroy(gameObject);
+        }
     }
 }

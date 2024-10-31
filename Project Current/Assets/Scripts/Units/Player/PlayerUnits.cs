@@ -33,6 +33,8 @@ namespace JC.FDG.Units.Player
 
         public float atkCooldown;
 
+        private bool deathCall;
+
         public bool isMoving;
 
         public void Start()
@@ -99,10 +101,14 @@ namespace JC.FDG.Units.Player
 
         private void Attack()
         {
-            if (atkCooldown <= 0 && distance <= baseStats.atkRange + 1)
+            if (atkCooldown <= 0 && distance <= baseStats.atkRange + 1 && aggroUnit != null)
             {
                 aggroUnit.TakeDamage(baseStats.attack);
                 atkCooldown = baseStats.atkSpeed;
+            }
+            else
+            {
+                Debug.Log("Mine the Crystals");
             }
         }
 
@@ -124,7 +130,7 @@ namespace JC.FDG.Units.Player
                 distance = Vector3.Distance(aggroTarget.position, transform.position);
                 navAgent.stoppingDistance = (baseStats.atkRange + 1);
 
-                if (distance <= baseStats.aggroRange)
+                if (distance <= baseStats.aggroRange && deathCall == false)
                 {
                     navAgent.SetDestination(aggroTarget.position);
                 }
@@ -144,6 +150,7 @@ namespace JC.FDG.Units.Player
 
         private void Die()
         {
+            deathCall = true;
             ResourceHandler.instance.noUnits -= 1;
             Debug.Log(ResourceHandler.instance.noUnits);
             InputManager.InputHandler.instance.selectedUnits.Remove(gameObject.transform);

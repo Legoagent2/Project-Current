@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   name: HQ
-  buildingPrefab: {fileID: 5968067731849236619, guid: fd6c6959dd750d44383440f74642d1d9,
+  buildingPrefab: {fileID: 5968067731849236619, guid: 667ef91dfef045049a01331bdfa21f52,
     type: 3}
   icon: {fileID: 6235327740463869660, guid: 55d81790c84b1884a948ae9dc6621e7c, type: 3}
   spawnTime: 0
