@@ -15,7 +15,7 @@ MonoBehaviour:
   isPlayerUnit: 0
   type: 0
   name: Workers
-  playerPrefab: {fileID: 459274191133161461, guid: 619d354b5257f4f4dbae96040ee9a2e6,
+  playerPrefab: {fileID: 459274191133161461, guid: c1b5c4e67a9f622409a31aff80882937,
     type: 3}
   enemyPrefab: {fileID: 8325440384413120428, guid: ae608fe87c53b3748a89d275b0fee346,
     type: 3}
@@ -24,8 +24,9 @@ MonoBehaviour:
   baseStats:
     cost: 25
     aggroRange: 10
-    atkRange: 1
+    atkRange: 2
     atkSpeed: 1
     attack: 2
     health: 30
     armor: 0
+    mineSpeed: 1

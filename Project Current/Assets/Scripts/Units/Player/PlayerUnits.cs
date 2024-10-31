@@ -33,6 +33,10 @@ namespace JC.FDG.Units.Player
 
         public float atkCooldown;
 
+        private bool deathCall;
+
+        public bool isMoving;
+
         public void Start()
         {
             navAgent = GetComponent<NavMeshAgent>();
@@ -50,8 +54,11 @@ namespace JC.FDG.Units.Player
             }
             else
             {
-                this.Attack();
-                this.MoveToAggroTarget();
+                if(!isMoving)
+                {
+                    this.Attack();
+                    this.MoveToAggroTarget();
+                }
             }
         }
 
@@ -73,6 +80,8 @@ namespace JC.FDG.Units.Player
 
         public void MoveUnit(Vector3 destination)
         {
+            isMoving = true;
+            Debug.Log(isMoving);
             if (destination != null)
             {
                 Debug.Log("Destination Set: " + destination);
@@ -81,14 +90,25 @@ namespace JC.FDG.Units.Player
             {
                 Debug.Log("Destination unknown. Please try again.");
             }
+            StartCoroutine(waitForRetry());
+        }
+
+        IEnumerator waitForRetry()
+        {
+            yield return new WaitForSeconds(3);
+            isMoving = false;
         }
 
         private void Attack()
         {
-            if (atkCooldown <= 0 && distance <= baseStats.atkRange + 1)
+            if (atkCooldown <= 0 && distance <= baseStats.atkRange + 1 && aggroUnit != null)
             {
                 aggroUnit.TakeDamage(baseStats.attack);
                 atkCooldown = baseStats.atkSpeed;
+            }
+            else
+            {
+                Debug.Log("Mine the Crystals");
             }
         }
 
@@ -110,7 +130,7 @@ namespace JC.FDG.Units.Player
                 distance = Vector3.Distance(aggroTarget.position, transform.position);
                 navAgent.stoppingDistance = (baseStats.atkRange + 1);
 
-                if (distance <= baseStats.aggroRange)
+                if (distance <= baseStats.aggroRange && deathCall == false)
                 {
                     navAgent.SetDestination(aggroTarget.position);
                 }
@@ -130,6 +150,7 @@ namespace JC.FDG.Units.Player
 
         private void Die()
         {
+            deathCall = true;
             ResourceHandler.instance.noUnits -= 1;
             Debug.Log(ResourceHandler.instance.noUnits);
             InputManager.InputHandler.instance.selectedUnits.Remove(gameObject.transform);

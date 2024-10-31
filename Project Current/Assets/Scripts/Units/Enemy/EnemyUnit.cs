@@ -55,11 +55,6 @@ namespace JC.FDG.Units.Enemy
             }
         }
 
-        private void LateUpdate()
-        {
-            
-        }
-
         private void CheckForEnemyTargets()
         {
             rangeColliders = Physics.OverlapSphere(transform.position, baseStats.aggroRange);
