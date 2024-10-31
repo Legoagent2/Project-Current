@@ -1,7 +1,10 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI%20Toolkit/MainMenuStyle.uss?fileID=7433441132597879392&amp;guid=b1c2cef75f2400040801edcb6a7447ab&amp;type=3#MainMenuStyle" />
-    <ui:VisualElement name="Logo" focusable="false" class="logo" />
-    <ui:Label text="These controls were created in UI Builder" style="align-items: center;" />
-    <ui:Button text="This is button1" display-tooltip-when-elided="true" name="Load_level" style="align-items: flex-end; width: 949px; height: 276px; -unity-text-align: middle-center; white-space: nowrap; background-image: url(&apos;project://database/Assets/UI/Button%20Off.png?fileID=2800000&amp;guid=f793bdfcec6aaaa449de7b40eddba7b6&amp;type=3#Button Off&apos;); -unity-background-scale-mode: scale-and-crop; -unity-slice-left: 0; -unity-slice-bottom: 256; background-color: rgba(212, 39, 39, 255); left: 50%;" />
-    <ui:Toggle label="Number?" name="toggle1" style="justify-content: center; align-items: auto;" />
+    <ui:VisualElement name="panel" class="panel">
+        <ui:VisualElement name="Menu" class="menu">
+            <ui:Button text="Button" display-tooltip-when-elided="true" class="button" />
+            <ui:Button text="Button" display-tooltip-when-elided="true" class="button" />
+            <ui:Button text="Button" display-tooltip-when-elided="true" class="button" />
+        </ui:VisualElement>
+    </ui:VisualElement>
 </ui:UXML>
