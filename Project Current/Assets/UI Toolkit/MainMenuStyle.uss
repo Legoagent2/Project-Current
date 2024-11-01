@@ -27,4 +27,5 @@
     align-items: stretch;
     justify-content: flex-start;
     width: 437%;
+    background-image: url('project://database/Assets/UI/Button%20Off.png?fileID=21300000&guid=f793bdfcec6aaaa449de7b40eddba7b6&type=3#Button Off');
 }
