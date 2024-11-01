@@ -10,7 +10,7 @@ namespace JC.FDG.Buildings.Player
 
         public void Start()
         {
-            baseStats = baseStats;
+            //baseStats = baseStats;
         }
     }
 }

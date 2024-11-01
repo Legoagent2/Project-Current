@@ -21,6 +21,8 @@ namespace JC.FDG.Units.Player
 
         public Enemy.EnemyUnit aggroUnit;
 
+        public Interactables.Crystal aggroObject;
+
         public bool hasAggro = false;
 
         public float distance;
@@ -72,6 +74,7 @@ namespace JC.FDG.Units.Player
                 {
                     aggroTarget = rangeColliders[i].gameObject.transform;
                     aggroUnit = aggroTarget.gameObject.GetComponent<Enemy.EnemyUnit>();
+                    aggroObject = aggroObject.gameObject.GetComponent<Interactables.Crystal>();
                     hasAggro = true;
                     break;
                 }
@@ -108,7 +111,12 @@ namespace JC.FDG.Units.Player
             }
             else
             {
-                Debug.Log("Mine the Crystals");
+                if (atkCooldown <= 0 && distance <= baseStats.atkRange + 1 && baseStats.canMine == true)
+                {
+                    Debug.Log("Mine the Crystals");
+                    aggroObject.TakeDamage(baseStats.attack);
+                    atkCooldown = baseStats.atkSpeed;
+                }
             }
         }
 

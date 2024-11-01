@@ -6,6 +6,7 @@ public class ResourceHandler : MonoBehaviour
 {
     public static ResourceHandler instance;
     public int noUnits;
+    public int crystalAmount;
     public GameObject gameOverText;
 
     private void Awake()

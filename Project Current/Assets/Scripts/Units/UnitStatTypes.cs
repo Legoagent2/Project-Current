@@ -9,7 +9,8 @@ namespace JC.FDG.Units
         [System.Serializable]
         public class Base
         {
-            public float cost, aggroRange, atkRange, atkSpeed, attack, health, armor, mineSpeed;
+            public float cost, aggroRange, atkRange, atkSpeed, attack, health, armor;
+            public bool canMine;
         }
     }
 }
