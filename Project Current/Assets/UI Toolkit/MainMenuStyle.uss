@@ -1,17 +1,23 @@
 .panel {
-    background-color: rgba(154, 0, 154, 0.51);
+    background-color: rgba(154, 0, 154, 0.38);
     right: auto;
     top: auto;
     align-items: center;
     justify-content: center;
     bottom: auto;
-    flex-grow: 0.333;
-    translate: -43% 0;
-    width: 25%;
+    flex-grow: 0.666;
+    translate: -43% 25%;
     flex-direction: column;
     position: relative;
     left: 50%;
     transform-origin: center;
+    width: 600px;
+    height: 350px;
+    flex-shrink: 2;
+    border-top-left-radius: 60px;
+    border-top-right-radius: 60px;
+    border-bottom-right-radius: 60px;
+    border-bottom-left-radius: 60px;
 }
 
 .menu {
@@ -26,12 +32,30 @@
     flex-direction: column;
     align-items: stretch;
     justify-content: flex-start;
-    width: 437%;
+    width: 250%;
     background-image: url('project://database/Assets/UI/Button_Off_Rescale.png?fileID=21300000&guid=06c57a7c644b52a4d9605a88b2769e0b&type=3#Button_Off_Rescale');
     -unity-background-scale-mode: scale-and-crop;
-    border-top-left-radius: 42px;
-    border-top-right-radius: 84px;
-    border-bottom-right-radius: 42px;
-    border-bottom-left-radius: 84px;
     background-color: rgba(75, 26, 67, 255);
+    margin-top: 16px;
+    margin-bottom: 16px;
+    -unity-text-align: middle-center;
+    border-top-left-radius: 42px;
+    border-top-right-radius: 42px;
+    border-bottom-right-radius: 42px;
+    border-bottom-left-radius: 42px;
+}
+
+.gamelogo {
+    background-image: url('project://database/Assets/UI/Logo%20(Main%20Menu%20Title%20Screen).png?fileID=2800000&guid=db479b25acb5fea468d98e10c74ee8d9&type=3#Logo (Main Menu Title Screen)');
+    padding-top: 128px;
+    padding-right: 128px;
+    padding-bottom: 128px;
+    padding-left: 128px;
+    margin-top: 4px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+    margin-left: 4px;
+    -unity-background-scale-mode: scale-and-crop;
+    width: 65%;
+    height: 33%;
 }
