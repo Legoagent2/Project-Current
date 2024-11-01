@@ -27,5 +27,11 @@
     align-items: stretch;
     justify-content: flex-start;
     width: 437%;
-    background-image: url('project://database/Assets/UI/Button%20Off.png?fileID=21300000&guid=f793bdfcec6aaaa449de7b40eddba7b6&type=3#Button Off');
+    background-image: url('project://database/Assets/UI/Button_Off_Rescale.png?fileID=21300000&guid=06c57a7c644b52a4d9605a88b2769e0b&type=3#Button_Off_Rescale');
+    -unity-background-scale-mode: scale-and-crop;
+    border-top-left-radius: 42px;
+    border-top-right-radius: 84px;
+    border-bottom-right-radius: 42px;
+    border-bottom-left-radius: 84px;
+    background-color: rgba(75, 26, 67, 255);
 }
