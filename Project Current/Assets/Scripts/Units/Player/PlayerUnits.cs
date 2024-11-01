@@ -74,7 +74,7 @@ namespace JC.FDG.Units.Player
                 {
                     aggroTarget = rangeColliders[i].gameObject.transform;
                     aggroUnit = aggroTarget.gameObject.GetComponent<Enemy.EnemyUnit>();
-                    aggroObject = aggroObject.gameObject.GetComponent<Interactables.Crystal>();
+                    aggroObject = aggroTarget.gameObject.GetComponent<Interactables.Crystal>();
                     hasAggro = true;
                     break;
                 }
