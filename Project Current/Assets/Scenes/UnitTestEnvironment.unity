@@ -1550,10 +1550,10 @@ MonoBehaviour:
   moveWithKeyboard: 0
   moveWithEdgeScrolling: 1
   moveWithMouseDrag: 0
-  fastSpeed: 0.5
+  fastSpeed: 1.5
   normalSpeed: 50
   movementSensitivity: 10
-  edgeSize: 200
+  edgeSize: 350
   cursorArrowUp: {fileID: 2800000, guid: 7c3abeeea4784154e88cb1178b99c69b, type: 3}
   cursorArrowDown: {fileID: 2800000, guid: 4fbefeb4515450e49a21f8e42a5b9394, type: 3}
   cursorArrowLeft: {fileID: 2800000, guid: 51a6450e3242e454cbe31775849a7d7e, type: 3}
