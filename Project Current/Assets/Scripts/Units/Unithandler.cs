@@ -9,8 +9,8 @@ namespace JC.FDG.Units
     {
         public static Unithandler instance;
 
-        [SerializeField] 
-        private BasicUnit worker, warrior, healer;
+        [SerializeField]
+        private BasicUnit worker, warrior;
 
         public LayerMask pUnitLayer, eUnitLayer;
 
