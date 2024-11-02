@@ -111,7 +111,7 @@ namespace JC.FDG.Units.Player
             }
             else
             {
-                if (atkCooldown <= 0 && distance <= baseStats.atkRange + 1 && baseStats.canMine == true)
+                if (atkCooldown <= 0 && distance <= baseStats.atkRange + 1 && baseStats.canMine == true && aggroObject != null)
                 {
                     Debug.Log("Mine the Crystals");
                     aggroObject.TakeDamage(baseStats.attack);
