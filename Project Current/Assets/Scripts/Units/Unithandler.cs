@@ -36,9 +36,6 @@ namespace JC.FDG.Units
                 case "warrior":
                     unit = warrior;
                     break;
-                case "healer":
-                    unit = healer;
-                    break;
                 default:
                     Debug.Log($"Unit Type: {type} could not be found or doesn't exist.");
                     return null;
