@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ResourceHandler : MonoBehaviour
 {
     public static ResourceHandler instance;
     public int noUnits;
+    public int crystalAmount;
+    public TextMeshProUGUI crystalDisplay;
     public GameObject gameOverText;
 
     private void Awake()
@@ -21,6 +24,7 @@ public class ResourceHandler : MonoBehaviour
 
     private void Update()
     {
+        crystalDisplay.text = crystalAmount.ToString();
         if (noUnits == 0)
         {
             Debug.Log("GAME OVERRRR");

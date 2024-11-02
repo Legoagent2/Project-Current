@@ -10,8 +10,7 @@ namespace JC.FDG.Units
         public enum unitType
         {
             Worker,
-            Warrior,
-            Healer
+            Warrior
         };
 
         [Header("Unit Settings")]

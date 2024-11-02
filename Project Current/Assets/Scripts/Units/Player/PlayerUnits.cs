@@ -21,6 +21,8 @@ namespace JC.FDG.Units.Player
 
         public Enemy.EnemyUnit aggroUnit;
 
+        public Interactables.Crystal aggroObject;
+
         public bool hasAggro = false;
 
         public float distance;
@@ -32,6 +34,10 @@ namespace JC.FDG.Units.Player
         public float currentHealth;
 
         public float atkCooldown;
+
+        private bool deathCall;
+
+        public bool isMoving;
 
         public void Start()
         {
@@ -50,8 +56,11 @@ namespace JC.FDG.Units.Player
             }
             else
             {
-                this.Attack();
-                this.MoveToAggroTarget();
+                if(!isMoving)
+                {
+                    this.Attack();
+                    this.MoveToAggroTarget();
+                }
             }
         }
 
@@ -65,6 +74,7 @@ namespace JC.FDG.Units.Player
                 {
                     aggroTarget = rangeColliders[i].gameObject.transform;
                     aggroUnit = aggroTarget.gameObject.GetComponent<Enemy.EnemyUnit>();
+                    aggroObject = aggroTarget.gameObject.GetComponent<Interactables.Crystal>();
                     hasAggro = true;
                     break;
                 }
@@ -73,6 +83,8 @@ namespace JC.FDG.Units.Player
 
         public void MoveUnit(Vector3 destination)
         {
+            isMoving = true;
+            Debug.Log(isMoving);
             if (destination != null)
             {
                 Debug.Log("Destination Set: " + destination);
@@ -81,14 +93,30 @@ namespace JC.FDG.Units.Player
             {
                 Debug.Log("Destination unknown. Please try again.");
             }
+            StartCoroutine(waitForRetry());
+        }
+
+        IEnumerator waitForRetry()
+        {
+            yield return new WaitForSeconds(3);
+            isMoving = false;
         }
 
         private void Attack()
         {
-            if (atkCooldown <= 0 && distance <= baseStats.atkRange + 1)
+            if (atkCooldown <= 0 && distance <= baseStats.atkRange + 1 && aggroUnit != null)
             {
                 aggroUnit.TakeDamage(baseStats.attack);
                 atkCooldown = baseStats.atkSpeed;
+            }
+            else
+            {
+                if (atkCooldown <= 0 && distance <= baseStats.atkRange + 1 && baseStats.canMine == true)
+                {
+                    Debug.Log("Mine the Crystals");
+                    aggroObject.TakeDamage(baseStats.attack);
+                    atkCooldown = baseStats.atkSpeed;
+                }
             }
         }
 
@@ -110,7 +138,7 @@ namespace JC.FDG.Units.Player
                 distance = Vector3.Distance(aggroTarget.position, transform.position);
                 navAgent.stoppingDistance = (baseStats.atkRange + 1);
 
-                if (distance <= baseStats.aggroRange)
+                if (distance <= baseStats.aggroRange && deathCall == false)
                 {
                     navAgent.SetDestination(aggroTarget.position);
                 }
@@ -130,6 +158,7 @@ namespace JC.FDG.Units.Player
 
         private void Die()
         {
+            deathCall = true;
             ResourceHandler.instance.noUnits -= 1;
             Debug.Log(ResourceHandler.instance.noUnits);
             InputManager.InputHandler.instance.selectedUnits.Remove(gameObject.transform);

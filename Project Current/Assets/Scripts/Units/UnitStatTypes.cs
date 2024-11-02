@@ -10,6 +10,7 @@ namespace JC.FDG.Units
         public class Base
         {
             public float cost, aggroRange, atkRange, atkSpeed, attack, health, armor;
+            public bool canMine;
         }
     }
 }
