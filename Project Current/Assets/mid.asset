@@ -6,8 +6,8 @@ TerrainLayer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: impassible
-  m_DiffuseTexture: {fileID: 2800000, guid: a6f79bd90a922074c9e9f0cc1b081626, type: 3}
+  m_Name: mid
+  m_DiffuseTexture: {fileID: 2800000, guid: df2fab58873ff5743b2bc597aea150a4, type: 3}
   m_NormalMapTexture: {fileID: 0}
   m_MaskMapTexture: {fileID: 0}
   m_TileSize: {x: 20, y: 20}
