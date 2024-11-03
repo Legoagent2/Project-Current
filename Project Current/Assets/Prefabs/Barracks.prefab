@@ -254,9 +254,9 @@ GameObject:
   - component: {fileID: 5968067731849236615}
   - component: {fileID: 5968067731849236614}
   - component: {fileID: 5968067731849236617}
-  - component: {fileID: 5968067731849236616}
   - component: {fileID: 8777721791318809427}
   - component: {fileID: 2359084169849844024}
+  - component: {fileID: 5231801706121196745}
   m_Layer: 8
   m_Name: Barracks
   m_TagString: Untagged
@@ -332,19 +332,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5968067731849236616
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5968067731849236619}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8777721791318809427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -379,6 +366,20 @@ MonoBehaviour:
   spawnMarker: {fileID: 6224458216639633493}
   spawnMarkerGraphics: {fileID: 8781697388665691963}
   maxMarkerDistance: 10
+--- !u!64 &5231801706121196745
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5968067731849236619}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -15797666336669938, guid: 77e1f4bef409dfa4c8f4138bc582c5b1, type: 3}
 --- !u!1 &6141359228658082141
 GameObject:
   m_ObjectHideFlags: 0

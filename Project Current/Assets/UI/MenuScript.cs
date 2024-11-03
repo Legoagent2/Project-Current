@@ -33,7 +33,7 @@ public class MenuScript : MonoBehaviour
     // Method to load the singleplayer scene
     private void LoadSingleplayerScene()
     {
-        SceneManager.LoadScene("ProjectCurrentDemo"); // Replace with the actual scene name
+        SceneManager.LoadScene("Project Current Demo"); // Replace with the actual scene name
     }
 
     // Method to exit the application
