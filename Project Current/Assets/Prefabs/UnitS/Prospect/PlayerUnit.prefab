@@ -147,15 +147,18 @@ MonoBehaviour:
     attack: 0
     health: 0
     armor: 0
+    canMine: 0
   rangeColliders: []
   aggroTarget: {fileID: 0}
   aggroUnit: {fileID: 0}
+  aggroObject: {fileID: 0}
   hasAggro: 0
   distance: 0
   unitStatDisplay: {fileID: 459274192319665220}
   healthBarAmount: {fileID: 459274191185449223}
   currentHealth: 0
   atkCooldown: 0
+  isMoving: 0
 --- !u!114 &459274192457039442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -480,7 +483,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 459274192175240866}
-  m_Mesh: {fileID: 110299847060030689, guid: d3aba8277b9155d45aac5aeb0faa5159, type: 3}
+  m_Mesh: {fileID: 110299847060030689, guid: 9617f19bf77754b4a92765f31c0902c3, type: 3}
 --- !u!23 &459274192175240864
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -849,7 +852,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 459274192783297018}
-  m_Mesh: {fileID: -8885033854881006114, guid: 64164828823d83c4d8055b5853e9d9bd, type: 3}
+  m_Mesh: {fileID: 0}
 --- !u!23 &459274192783297016
 MeshRenderer:
   m_ObjectHideFlags: 0
