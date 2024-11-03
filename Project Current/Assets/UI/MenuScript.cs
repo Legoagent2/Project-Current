@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement; // For scene management
 using UnityEngine.UIElements; // For UI Toolkit
 
-public class MenuBehaviour : MonoBehaviour
+public class MenuScript : MonoBehaviour
 {
     [SerializeField] private UIDocument uiDoc;
 
