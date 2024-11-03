@@ -83,7 +83,7 @@ namespace JC.FDG.Units.Enemy
         public void TakeDamage(float damage)
         {
             float totalDamage = damage - baseStats.armor;
-            currentHealth -= totalDamage;
+            currentHealth += totalDamage;
         }
 
         private void MoveToAggroTarget()
