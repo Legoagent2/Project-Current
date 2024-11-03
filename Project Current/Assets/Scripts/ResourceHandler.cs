@@ -9,7 +9,7 @@ public class ResourceHandler : MonoBehaviour
     public int noUnits;
     public int crystalAmount;
     public TextMeshProUGUI crystalDisplay;
-    public GameObject gameOverText;
+    //public GameObject gameOverText;
 
     private void Awake()
     {
@@ -19,16 +19,16 @@ public class ResourceHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        noUnits = 3;
+        //noUnits = 3;
     }
 
     private void Update()
     {
         crystalDisplay.text = crystalAmount.ToString();
-        if (noUnits == 0)
-        {
-            Debug.Log("GAME OVERRRR");
-            gameOverText.SetActive(true);
-        }
+        //if (noUnits == 0)
+        //{
+        //    Debug.Log("GAME OVERRRR");
+        //    gameOverText.SetActive(true);
+        //}
     }
 }
