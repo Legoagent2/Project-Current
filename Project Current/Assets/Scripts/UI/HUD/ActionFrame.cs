@@ -22,6 +22,7 @@ namespace JC.FDG.UI.HUD
         public GameObject spawnPoint = null;
         public List<GameObject> unitParents = new List<GameObject>();
         private int spawnNum = 0;
+        public ResourceHandler resources;
         //public Transform unitClass;
         //public Units.BasicUnit unit;
 
@@ -92,10 +93,14 @@ namespace JC.FDG.UI.HUD
             if (IsUnit(objectToSpawn))
             {
                 Units.BasicUnit unit = IsUnit(objectToSpawn);
-                Debug.Log("StartSpawnTimer" + unit.name);
-                spawnQueue.Add(unit.spawnTime);
-                spawnList.Add(unit);
-                spawnOrder.Add(unit.playerPrefab);
+                if (resources.crystalAmount >= unit.baseStats.cost)
+                {
+                    Debug.Log("StartSpawnTimer" + unit.name);
+                    spawnQueue.Add(unit.spawnTime);
+                    spawnList.Add(unit);
+                    spawnOrder.Add(unit.playerPrefab);
+                    resources.crystalAmount -= unit.baseStats.cost;
+                }
             }
             //Debug.Log("IsUnit" + unit.name);
             if (spawnQueue.Count == 1)
