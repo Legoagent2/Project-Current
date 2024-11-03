@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement; // For scene management
 using UnityEngine.UIElements; // For UI Toolkit
 
-public class MenuBehaviour : MonoBehaviour
+public class MenuScript : MonoBehaviour
 {
     [SerializeField] private UIDocument uiDoc;
 
@@ -33,7 +33,7 @@ public class MenuBehaviour : MonoBehaviour
     // Method to load the singleplayer scene
     private void LoadSingleplayerScene()
     {
-        SceneManager.LoadScene("ProjectCurrentDemo"); // Replace with the actual scene name
+        SceneManager.LoadScene("Project Current Demo"); // Replace with the actual scene name
     }
 
     // Method to exit the application
