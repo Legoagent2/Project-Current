@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 5968067731849236614}
   - component: {fileID: 5968067731849236617}
   - component: {fileID: 5968067731849236616}
+  - component: {fileID: 2937484785397976980}
+  - component: {fileID: 5841861316477139983}
   m_Layer: 8
   m_Name: EnemyHQ
   m_TagString: Untagged
@@ -104,6 +106,54 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 38, y: 1, z: 38}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!195 &2937484785397976980
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5968067731849236619}
+  m_Enabled: 0
+  m_AgentTypeID: 0
+  m_Radius: 13.296751
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 8.762483
+  m_BaseOffset: 4.3812413
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &5841861316477139983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5968067731849236619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0819f73d32382344da50b1447f4cf517, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseStats:
+    cost: 0
+    aggroRange: 0
+    atkRange: 0
+    atkSpeed: 0
+    attack: 0
+    health: 100
+    armor: 5
+    canMine: 0
+  unitStatDisplay: {fileID: 4596843493075378635, guid: f88055e75a0e35846947a0db44e11b9b,
+    type: 3}
+  healthBarAmount: {fileID: 164292812632496246}
+  currentHealth: 0
+  atkCooldown: 0
 --- !u!1001 &306877788758498903
 PrefabInstance:
   m_ObjectHideFlags: 0

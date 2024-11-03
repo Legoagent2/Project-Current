@@ -28,5 +28,5 @@ MonoBehaviour:
     atkSpeed: 1
     attack: 2
     health: 30
-    armor: 0
+    armor: 4
     canMine: 1
