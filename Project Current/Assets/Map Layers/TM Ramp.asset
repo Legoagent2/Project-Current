@@ -6,8 +6,8 @@ TerrainLayer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LowRamp
-  m_DiffuseTexture: {fileID: 2800000, guid: 19f0f033ca1b8ab46acb1443827543fe, type: 3}
+  m_Name: TM Ramp
+  m_DiffuseTexture: {fileID: 2800000, guid: e4d9603cec2ba934c914bd3c31b64a1b, type: 3}
   m_NormalMapTexture: {fileID: 0}
   m_MaskMapTexture: {fileID: 0}
   m_TileSize: {x: 20, y: 20}
