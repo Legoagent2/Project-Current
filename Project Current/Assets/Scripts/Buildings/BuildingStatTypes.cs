@@ -8,7 +8,7 @@ namespace JC.FDG.Buildings
         [System.Serializable]
         public class Base
         {
-            public float health, armor, attack;
+            public float health, armor, attack;//handles health, attack resistance, and damage output
         }
     }
 }
