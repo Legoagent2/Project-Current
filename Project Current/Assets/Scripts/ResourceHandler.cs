@@ -33,6 +33,12 @@ public class ResourceHandler : MonoBehaviour
         if (noUnits <= 1)
         {
             gameOverText.SetActive(true);//reveal victory text once all enemies are destroyed
-        } 
+            StartCoroutine(closeGame());
+        }
+    }
+    IEnumerator closeGame()//if theres a new location against a detected object, wait 3 seconds before going back
+    {
+        yield return new WaitForSeconds(5);
+        Application.Quit();
     }
 }
