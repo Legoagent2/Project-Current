@@ -83,7 +83,7 @@ namespace JC.FDG.Units.Enemy
         public void TakeDamage(float damage)
         {
             float totalDamage = damage - baseStats.armor;
-            currentHealth -= totalDamage;
+            currentHealth += totalDamage;
         }
 
         private void MoveToAggroTarget()
@@ -122,6 +122,8 @@ namespace JC.FDG.Units.Enemy
 
         private void Die()
         {
+            Debug.Log(ResourceHandler.instance.noUnits);
+            ResourceHandler.instance.noUnits -= 1;
             deathCall = true;
             Destroy(gameObject);
         }

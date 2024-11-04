@@ -8,7 +8,7 @@ namespace JC.FDG.Units
 {
     public class UnitStatDisplay : MonoBehaviour
     {
-        public float maxHealth, armor, currentHealth;
+        public float maxHealth, armor, currentHealth;// max health against updated health
 
         [SerializeField] private Image healthBarAmount;
 
@@ -18,7 +18,7 @@ namespace JC.FDG.Units
         {
             try
             {
-                maxHealth = gameObject.GetComponentInParent<Player.PlayerUnits>().baseStats.health;
+                maxHealth = gameObject.GetComponentInParent<Player.PlayerUnits>().baseStats.health;//get stats from stats script
                 armor = gameObject.GetComponentInParent<Player.PlayerUnits>().baseStats.armor;
                 isPlayerUnit = true;
             }
@@ -27,7 +27,7 @@ namespace JC.FDG.Units
                 Debug.Log("No player Unit. Trying Enemy Unit...");
                 try
                 {
-                    maxHealth = gameObject.GetComponentInParent<Enemy.EnemyUnit>().baseStats.health;
+                    maxHealth = gameObject.GetComponentInParent<Enemy.EnemyUnit>().baseStats.health;//get stats from stats script
                     armor = gameObject.GetComponentInParent<Enemy.EnemyUnit>().baseStats.armor;
                     isPlayerUnit = false;
                 }
@@ -51,7 +51,7 @@ namespace JC.FDG.Units
             currentHealth -= totalDamage;
         }
 
-        private void HandleHealth()
+        private void HandleHealth()// display the healthbar HUD
         {
             Camera camera = Camera.main;
             gameObject.transform.LookAt(gameObject.transform.position +
@@ -65,7 +65,7 @@ namespace JC.FDG.Units
             }
         }
 
-        private void Die()
+        private void Die()//vanish once the parent unit object dies
         {
             if (isPlayerUnit)
             {

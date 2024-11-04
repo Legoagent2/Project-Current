@@ -20,19 +20,25 @@ public class ResourceHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        noUnits = 3;
+        noUnits = 100;
     }
 
     private void Update()
     {
-        crystalDisplay.text = crystalAmount.ToString();
+        crystalDisplay.text = crystalAmount.ToString();//display resource amount on UI asset
     }
 
     public void runVictory()
     {
-        if (gameVictory)
+        if (noUnits <= 1)
         {
-            gameOverText.SetActive(true);
-        } 
+            gameOverText.SetActive(true);//reveal victory text once all enemies are destroyed
+            StartCoroutine(closeGame());
+        }
+    }
+    IEnumerator closeGame()//if theres a new location against a detected object, wait 3 seconds before going back
+    {
+        yield return new WaitForSeconds(5);
+        Application.Quit();
     }
 }

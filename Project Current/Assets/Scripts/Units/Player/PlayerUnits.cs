@@ -15,13 +15,13 @@ namespace JC.FDG.Units.Player
 
         //public ResourceHandler resources;
 
-        public Collider[] rangeColliders;
+        public Collider[] rangeColliders;// objects that can be detected
 
         public Transform aggroTarget;
 
-        public Enemy.EnemyUnit aggroUnit;
+        public Enemy.EnemyUnit aggroUnit;//detected enemies
 
-        public Interactables.Crystal aggroObject;
+        public Interactables.Crystal aggroObject;// detected crystal
 
         public bool hasAggro = false;
 
@@ -39,32 +39,32 @@ namespace JC.FDG.Units.Player
 
         public bool isMoving;
 
-        public void Start()
+        public void Start()// set navigation and health on startup
         {
             navAgent = GetComponent<NavMeshAgent>();
             currentHealth = baseStats.health;
         }
 
-        private void Update()
+        private void Update()// run functions per frame
         {
             this.HandleHealth();
             atkCooldown -= Time.deltaTime;
 
             if (!hasAggro)
             {
-                this.CheckForEnemyTargets();
+                this.CheckForEnemyTargets();// look for enemy units
             }
             else
             {
                 if(!isMoving)
                 {
-                    this.Attack();
+                    this.Attack();// attack and approach enemy targets
                     this.MoveToAggroTarget();
                 }
             }
         }
 
-        private void CheckForEnemyTargets()
+        private void CheckForEnemyTargets()//detect enemy units within detection range
         {
             rangeColliders = Physics.OverlapSphere(transform.position, baseStats.aggroRange);
 
@@ -81,7 +81,7 @@ namespace JC.FDG.Units.Player
             }
         }
 
-        public void MoveUnit(Vector3 destination)
+        public void MoveUnit(Vector3 destination)// move unit to the destination selected on the map
         {
             isMoving = true;
             Debug.Log(isMoving);
@@ -96,13 +96,13 @@ namespace JC.FDG.Units.Player
             StartCoroutine(waitForRetry());
         }
 
-        IEnumerator waitForRetry()
+        IEnumerator waitForRetry()//if theres a new location against a detected object, wait 3 seconds before going back
         {
             yield return new WaitForSeconds(3);
             isMoving = false;
         }
 
-        private void Attack()
+        private void Attack()// remove health from the enemy or mine the crystal based on what object's detected
         {
             if (atkCooldown <= 0 && distance <= baseStats.atkRange + 1 && aggroUnit != null)
             {
@@ -120,13 +120,13 @@ namespace JC.FDG.Units.Player
             }
         }
 
-        public void TakeDamage(float damage)
+        public void TakeDamage(float damage)// recieve damage based on armor and damage from the target
         {
             float totalDamage = damage - baseStats.armor;
             currentHealth -= totalDamage;
         }
 
-        private void MoveToAggroTarget()
+        private void MoveToAggroTarget()// move to detected target
         {
             if (aggroTarget == null)
             {
@@ -145,7 +145,7 @@ namespace JC.FDG.Units.Player
             }
         }
 
-        private void HandleHealth()
+        private void HandleHealth()// change the healthbar with each change in health
         {
             Camera camera = Camera.main;
             unitStatDisplay.transform.LookAt(unitStatDisplay.transform.position + camera.transform.rotation * Vector3.forward, camera.transform.rotation * Vector3.up);
@@ -156,11 +156,9 @@ namespace JC.FDG.Units.Player
             }
         }
 
-        private void Die()
+        private void Die()//destroy upon health reaching 0
         {
             deathCall = true;
-            ResourceHandler.instance.noUnits -= 1;
-            Debug.Log(ResourceHandler.instance.noUnits);
             InputManager.InputHandler.instance.selectedUnits.Remove(gameObject.transform);
             Destroy(gameObject);
         }

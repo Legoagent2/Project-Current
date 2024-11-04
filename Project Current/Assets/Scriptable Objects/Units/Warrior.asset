@@ -26,6 +26,7 @@ MonoBehaviour:
     aggroRange: 10
     atkRange: 5
     atkSpeed: 0.5
-    attack: 3
+    attack: 8
     health: 15
     armor: 5
+    canMine: 0
