@@ -122,6 +122,8 @@ namespace JC.FDG.Units.Enemy
 
         private void Die()
         {
+            Debug.Log(ResourceHandler.instance.noUnits);
+            ResourceHandler.instance.noUnits -= 1;
             deathCall = true;
             Destroy(gameObject);
         }

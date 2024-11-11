@@ -113,9 +113,9 @@ namespace JC.FDG.UI.HUD
         {
             Debug.Log("SpawnObject" + spawnList[spawnNum].name);
             GameObject unitParent = CheckUnit(spawnList[spawnNum]);
-            GameObject spawnedObject = Instantiate(spawnOrder[0], new Vector3(spawnPoint.transform.parent.position.x, spawnPoint.transform.parent.position.y, spawnPoint.transform.parent.position.z), Quaternion.identity, unitParent.transform);
+            GameObject spawnedObject = Instantiate(spawnOrder[spawnNum], new Vector3(spawnPoint.transform.parent.position.x, spawnPoint.transform.parent.position.y, spawnPoint.transform.parent.position.z), Quaternion.identity, unitParent.transform);
             spawnedObject.GetComponent<Units.Player.PlayerUnits>().baseStats.health = 50f;
-            spawnedObject.GetComponent<Units.Player.PlayerUnits>().baseStats = spawnList[0].baseStats;
+            spawnedObject.GetComponent<Units.Player.PlayerUnits>().baseStats = spawnList[spawnNum].baseStats;
             spawnNum++;
         }
     }
