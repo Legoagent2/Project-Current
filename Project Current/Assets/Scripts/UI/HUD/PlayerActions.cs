@@ -10,11 +10,11 @@ namespace JC.FDG.UI.HUD
     {
         [Space(5)]
         [Header("Units")]
-        public List<Units.BasicUnit> basicUnits = new List<Units.BasicUnit>();
+        public List<Units.BasicUnit> basicUnits = new List<Units.BasicUnit>();// all units than can be spawned
 
         [Space(15)]
         [Header("Buildings")]
         [Space(5)]
-        public List<Buildings.BasicBuilding> basicBuildings = new List<Buildings.BasicBuilding>();
+        public List<Buildings.BasicBuilding> basicBuildings = new List<Buildings.BasicBuilding>();// all units than can be spawned
     }
 }

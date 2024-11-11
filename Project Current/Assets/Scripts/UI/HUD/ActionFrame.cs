@@ -15,7 +15,7 @@ namespace JC.FDG.UI.HUD
         private List<Button> buttons = new List<Button>();
         private PlayerActions actionsList = null;
 
-        public List<float> spawnQueue = new List<float>();
+        public List<float> spawnQueue = new List<float>();//Queue
         public List<GameObject> spawnOrder = new List<GameObject>();
         public List<Units.BasicUnit> spawnList = new List<Units.BasicUnit>();
         public Vector3 testCoordinates = new Vector3(0, 0, 0);
@@ -23,18 +23,14 @@ namespace JC.FDG.UI.HUD
         public List<GameObject> unitParents = new List<GameObject>();
         private int spawnNum = 0;
         public ResourceHandler resources;
-        //public Transform unitClass;
-        //public Units.BasicUnit unit;
 
         private void Awake()
         {
-            //Debug.Log("Awake" + unit.name);
             instance = this;
         }
 
         public void SetActionButtons(PlayerActions actions, GameObject spawnLocation)
         {
-            //Debug.Log("SetActionButtons" + unit.name);
             actionsList = actions;
             spawnPoint = spawnLocation;
 
